@@ -1,0 +1,43 @@
+@import "../../styles/utility.css";
+
+/* Hero Section */
+.hero {
+  background-color: var(--color-green-100);
+}
+
+.hero-img-container {
+  width: 100%;
+  height: 23rem;
+}
+
+.hero-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 1rem;
+}
+
+.hero-text-container h1 {
+  color: var(--color-green-600);
+}
+
+.hero-text-container .btn {
+  width: fit-content;
+  text-decoration: none;
+}
+
+.hero-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-text-container {
+    margin-bottom: 2rem;
+  }
+}
