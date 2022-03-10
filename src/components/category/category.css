@@ -1,0 +1,41 @@
+/* Category Section */
+.category-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: var(--color-green-100);
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.category-pos-rel {
+  position: relative;
+  transition: all 0.5s linear;
+}
+
+.category-pos-rel:hover {
+  transform: scale(1.1);
+}
+
+.category-img-container {
+  width: 23rem;
+  height: 14rem;
+}
+
+.category-img-container img {
+  border-radius: 1rem;
+}
+
+.category-overlay {
+  position: absolute;
+  width: 23rem;
+  text-align: center;
+  background-color: var(--color-gray);
+  top: 5rem;
+  font-weight: bolder;
+  color: var(--color-black);
+}
+
+.m-top-bottom {
+  margin: 2.5rem 0;
+}

@@ -1,0 +1,19 @@
+/* Footer Section */
+.footer {
+  grid-area: footer;
+  margin-top: auto;
+  padding: 1rem;
+  background-color: var(--color-green-100);
+  text-align: center;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.social-links {
+  font-size: 1.5rem;
+  margin-right: 1.8rem;
+  color: var(--color-black);
+}
