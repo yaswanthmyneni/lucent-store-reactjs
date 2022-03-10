@@ -9,7 +9,7 @@ const LandingPage = () => {
     <>
       <Navigation />
       <main>
-        <section id="hero" className="hero">
+        <section className="hero">
           <div className="hero-wrapper">
             <div className="hero-text-container">
               <h1>YOGA ACCESSORIES</h1>
@@ -27,7 +27,8 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
-        <section id="category" className="m-top-bottom">
+        
+        <section className="m-top-bottom">
           <h2 className="text-center">CATEGORIES</h2>
           <div className="category-container">
             {categoryDataList.map((item) => (
