@@ -18,16 +18,12 @@ const Navigation = () => {
         <a className="navbar navbar-m-lr-1" href="#">
           <i className="fa-solid fa-store"></i>
         </a>
-        <a className="navbar navbar-m-lr-1" href="#">
-          <IconWithBadge>
-            <i className="fas fa-heart icon-badge"></i>
-          </IconWithBadge>
-        </a>
-        <a className="navbar navbar-m-lr-1 m-r-2rem" href="#">
-          <IconWithBadge>
-            <i className="fas fa-shopping-cart icon-badge"></i>
-          </IconWithBadge>
-        </a>
+        <IconWithBadge>
+          <i className="fas fa-heart icon-badge"></i>
+        </IconWithBadge>
+        <IconWithBadge className="m-r-2rem">
+          <i className="fas fa-shopping-cart icon-badge"></i>
+        </IconWithBadge>
       </div>
     </header>
   );
