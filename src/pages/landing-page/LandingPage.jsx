@@ -27,8 +27,8 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
-        
-        <section className="m-top-bottom">
+
+        <section id="category" className="m-top-bottom">
           <h2 className="text-center">CATEGORIES</h2>
           <div className="category-container">
             {categoryDataList.map((item) => (
