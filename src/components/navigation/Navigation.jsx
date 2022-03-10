@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
     <header className="header">
       <div className="navbar-container">
-        <a className="navbar" href="./home.html">
+        <a className="navbar" href="#">
           <h1 className="navbar-m-lr-1">LUCENT STORE</h1>
         </a>
         <a className="navbar-m-left-auto navbar" href="#">
