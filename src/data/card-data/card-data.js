@@ -1,0 +1,61 @@
+import cardImage from "../../assets/images/hero.jpg";
+
+const cardDataList = [
+  {
+    id: "C001",
+    badgeName: "sale",
+    image: cardImage,
+    category: "Essential",
+    cardName: "Yoga Mat",
+    brandName: "Isha Life",
+    discountPrice: "$149",
+    originalPrice: "$200",
+    discountPercentage: "25%",
+  },
+  {
+    id: "C002",
+    badgeName: "sale",
+    image: cardImage,
+    category: "Essential",
+    cardName: "Yoga Mat",
+    brandName: "Isha Life",
+    discountPrice: "$149",
+    originalPrice: "$200",
+    discountPercentage: "25%",
+  },
+  {
+    id: "C003",
+    badgeName: "sale",
+    image: cardImage,
+    category: "Essential",
+    cardName: "Yoga Mat",
+    brandName: "Isha Life",
+    discountPrice: "$149",
+    originalPrice: "$200",
+    discountPercentage: "25%",
+  },
+  {
+    id: "C004",
+    badgeName: "sale",
+    image: cardImage,
+    category: "Essential",
+    cardName: "Yoga Mat",
+    brandName: "Isha Life",
+    discountPrice: "$149",
+    originalPrice: "$200",
+    discountPercentage: "25%",
+  },
+  {
+    id: "C005",
+    badgeName: "sale",
+    image: cardImage,
+    category: "Essential",
+    cardName: "Yoga Mat",
+    brandName: "Isha Life",
+    discountPrice: "$149",
+    originalPrice: "$200",
+    discountPercentage: "25%",
+  },
+];
+
+export { cardDataList };
