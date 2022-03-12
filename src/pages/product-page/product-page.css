@@ -1,0 +1,90 @@
+@import "../../styles/utility.css";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+}
+
+/* Aside section */
+.aside {
+  grid-area: aside;
+  position: sticky;
+  top: 5.35rem;
+  height:calc(100vh - 5.35rem);
+  left: 0;
+}
+
+.aside-ul {
+  padding: 8px;
+  border: 1px solid var(--color-silver);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 0 var(--color-silver);
+}
+
+.aside-container {
+  padding: 1rem;
+}
+
+.aside-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aside-flex button {
+  height: fit-content;
+}
+
+/* Main Section */
+.main {
+  grid-area: main;
+  margin: 0 1rem;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header header"
+      "aside aside"
+      "main main"
+      "footer footer";
+  }
+
+  .aside {
+    position: static;
+    height: auto;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .aside-ul {
+    width: 11rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .aside-ul {
+    width: 16rem;
+    margin: auto;
+  }
+}

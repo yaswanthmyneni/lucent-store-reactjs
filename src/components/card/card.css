@@ -1,0 +1,30 @@
+.card-vertical > button {
+  margin-bottom: 8px;
+}
+
+.card-margin > p {
+    margin-top: 8px;
+}
+
+.card-margin-lr {
+    margin: 0 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 18rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .card {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 75%;
+  }
+}
