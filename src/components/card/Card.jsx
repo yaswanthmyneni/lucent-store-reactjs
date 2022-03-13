@@ -1,4 +1,5 @@
 import "./card.css";
+import { Button } from "../index";
 
 const Card = ({ cardData }) => {
   const {
@@ -21,7 +22,9 @@ const Card = ({ cardData }) => {
         <h3 className="card-margin-bottom">{cardName}</h3>
         <p className="card-margin-bottom">{brandName}</p>
         <div className="card-margin-bottom card-align-items">
-          <h3 className="card-margin-0 card-display card-margin-lr">{discountPrice}</h3>
+          <h3 className="card-margin-0 card-display card-margin-lr">
+            {discountPrice}
+          </h3>
           <h4 className="card-margin-0 card-display card-text-strick text-gray card-margin-lr">
             {originalPrice}
           </h4>
@@ -30,10 +33,8 @@ const Card = ({ cardData }) => {
           </h3>
         </div>
       </div>
-      <button className="btn btn-primary">Add to cart</button>
-      <button className="btn btn-secondary">
-        <span>Add to wishlist</span>
-      </button>
+      <Button name="Add to cart" className="btn-primary"></Button>
+      <Button name="Add to wishlist" className="btn-secondary"></Button>
     </div>
   );
 };
