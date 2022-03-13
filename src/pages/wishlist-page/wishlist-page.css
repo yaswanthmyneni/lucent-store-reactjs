@@ -1,0 +1,41 @@
+@import "../../styles/utility.css";
+
+/* Main Section */
+.wishlist-page-main {
+  margin: 0 8rem;
+}
+
+.wishlist-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 1280px) {
+  .wishlist-page-main {
+    margin: 0 3rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wishlist-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wishlist-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wishlist-page-main {
+    margin: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wishlist-container {
+    grid-template-columns: 1fr;
+  }
+}
