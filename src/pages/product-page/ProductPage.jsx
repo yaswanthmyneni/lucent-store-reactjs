@@ -1,6 +1,6 @@
 import "./product-page.css";
 import { Navigation, Footer, Card, AsideBar } from "../../components";
-import { cardDataList } from "../../data";
+import { productsList } from "../../data";
 
 const ProductPage = () => {
   return (
@@ -8,11 +8,16 @@ const ProductPage = () => {
       <Navigation />
       <AsideBar />
 
-      <main className="main">
+      <main className="product-page-main">
         <h3>All Products</h3>
         <div className="product-container">
-          {cardDataList.map((item) => (
-            <Card key={item.id} cardData={item} />
+          {productsList.map((item) => (
+            <Card
+              key={item.id}
+              cardData={item}
+              buttonPrimary="Add to cart"
+              buttonSecondary="Add to wishlist"
+            />
           ))}
         </div>
       </main>
