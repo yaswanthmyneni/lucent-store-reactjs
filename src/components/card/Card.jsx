@@ -1,7 +1,7 @@
 import "./card.css";
 import { Button } from "../index";
 
-const Card = ({ cardData }) => {
+const Card = ({ cardData, buttonPrimary, buttonSecondary }) => {
   const {
     badgeName,
     image,
@@ -33,8 +33,8 @@ const Card = ({ cardData }) => {
           </h3>
         </div>
       </div>
-      <Button name="Add to cart" className="btn-primary"></Button>
-      <Button name="Add to wishlist" className="btn-secondary"></Button>
+      <Button name={buttonPrimary} className="btn-primary"></Button>
+      <Button name={buttonSecondary} className="btn-secondary"></Button>
     </div>
   );
 };
