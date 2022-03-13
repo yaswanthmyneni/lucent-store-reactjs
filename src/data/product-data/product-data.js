@@ -1,6 +1,6 @@
 import cardImage from "../../assets/images/hero.jpg";
 
-const cardDataList = [
+const productsList = [
   {
     id: "C001",
     badgeName: "sale",
@@ -58,4 +58,4 @@ const cardDataList = [
   },
 ];
 
-export { cardDataList };
+export { productsList };
