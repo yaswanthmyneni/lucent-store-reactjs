@@ -1,11 +1,12 @@
-const IconWithBadge = ({ children, className }) => {
+const IconWithBadge = ({ children, className, count=0 }) => {
+
   return (
-    <a className={`navbar navbar-m-lr-1 ${className}`} href="#">
+    <div className={`navbar navbar-m-lr-1 ${className}`} href="#">
       <div className="display-badge pos-rel-badge">
         {children}
-        <span className="badge badge-online badge-to-icon">9</span>
+        <span className="badge badge-online badge-to-icon">{count}</span>
       </div>
-    </a>
+    </div>
   );
 };
 
