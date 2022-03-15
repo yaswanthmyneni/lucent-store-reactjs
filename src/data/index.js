@@ -1,4 +1,4 @@
 import { categoryDataList } from "./category-data/category-data.js";
-import { cardDataList } from "./card-data/card-data.js";
+import { productsList } from "./product-data/product-data.js";
 
-export { categoryDataList, cardDataList };
+export { categoryDataList, productsList };

@@ -1,14 +1,13 @@
-import "./product-page.css";
-import { Navigation, Footer, Card, AsideBar } from "../../components";
+import "./wishlist-page.css";
+import { Navigation, Footer, Card } from "../../components";
 import { productsList } from "../../data";
 
-const ProductPage = () => {
+const WishlistPage = () => {
   return (
-    <div className="wrapper">
+    <>
       <Navigation />
-      <AsideBar />
 
-      <main className="product-page-main">
+      <main className="wishlist-page-main">
         <h3>All Products</h3>
         <div className="product-container">
           {productsList.map((item) => (
@@ -16,15 +15,15 @@ const ProductPage = () => {
               key={item.id}
               cardData={item}
               buttonPrimary="Add to cart"
-              buttonSecondary="Add to wishlist"
+              buttonSecondary="Remove from wishlist"
             />
           ))}
         </div>
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
-export { ProductPage };
+export { WishlistPage };
