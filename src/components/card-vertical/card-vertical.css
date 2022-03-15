@@ -10,6 +10,11 @@
   margin: 0 4px;
 }
 
+.card-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 18rem;
