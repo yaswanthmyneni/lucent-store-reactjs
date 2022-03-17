@@ -31,7 +31,7 @@ const AsideBar = () => {
           <ul className="ul-none aside-ul">
             <h5>Sort By</h5>
             <li>
-              <label for="low-to-high">
+              <label htmlFor="low-to-high">
                 <input type="radio" id="low-to-high" name="price" /> Price - Low
                 to high
               </label>
@@ -46,22 +46,22 @@ const AsideBar = () => {
           <ul className="ul-none aside-ul">
             <h5>Rating</h5>
             <li>
-              <label for="star-4">
+              <label htmlFor="star-4">
                 <input type="radio" id="star-4" name="rating" /> 4 Star & above
               </label>
             </li>
             <li>
-              <label for="star-3">
+              <label htmlFor="star-3">
                 <input type="radio" id="star-3" name="rating" /> 3 Star & above
               </label>
             </li>
             <li>
-              <label for="star-2">
+              <label htmlFor="star-2">
                 <input type="radio" id="star-2" name="rating" /> 2 Star & above
               </label>
             </li>
             <li>
-              <label for="star-1">
+              <label htmlFor="star-1">
                 <input type="radio" id="star-1" name="rating" /> 1 Star & above
               </label>
             </li>

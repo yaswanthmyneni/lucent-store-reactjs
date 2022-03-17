@@ -1,8 +1,10 @@
 import "./wishlist-page.css";
-import { Navigation, Footer, Card } from "../../components";
-import { productsList } from "../../data";
+import { Navigation, Footer, CardVertical } from "../../components";
+import { useProductContext } from "../../context";
 
 const WishlistPage = () => {
+  const { productsList } = useProductContext();
+
   return (
     <>
       <Navigation />
@@ -11,7 +13,7 @@ const WishlistPage = () => {
         <h3>All Products</h3>
         <div className="product-container">
           {productsList.map((item) => (
-            <Card
+            <CardVertical
               key={item.id}
               cardData={item}
               buttonPrimary="Add to cart"
