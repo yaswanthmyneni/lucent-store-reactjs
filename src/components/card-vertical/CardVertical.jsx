@@ -5,13 +5,12 @@ const CardVertical = ({
   cardData,
   buttonPrimary,
   buttonSecondary,
-  onClickFuncPrimary,
-  onClickFuncSecondary,
+  onClickFunc1,
+  onClickFunc2,
 }) => {
   const {
     badgeName,
     image,
-    category,
     cardName,
     brandName,
     discountPrice,
@@ -23,36 +22,37 @@ const CardVertical = ({
   return (
     <div className="card card-vertical card-pos-rel">
       <span className="badge-text card-badge-pos flex-badge">{badgeName}</span>
-      <img className="image-resp" src={image} alt="cart" />
+      <div className="card-img-container">
+        <img className="image-resp" src={image} alt="cart" />
+      </div>
       <div className="card-margin">
         <div className="card-flex">
-        <p className="card-margin-bottom text-gray ">{category}</p>
-        <p className="card-margin-bottom">{rating}
-        <i className="fa-solid fa-star"></i></p>
+          <p className="card-margin-0">{brandName}</p>
+          <p className="card-margin-0">
+            {rating}
+            <i className="fa-solid fa-star"></i>
+          </p>
         </div>
-        <h3 className="card-margin-bottom">{cardName}</h3>
-        <p className="card-margin-bottom">{brandName}</p>
-        <div className="card-margin-bottom card-align-items">
-          <h3 className="card-margin-0 card-display card-margin-lr">
-            ${discountPrice}
-          </h3>
-          <h4 className="card-margin-0 card-display card-text-strick text-gray card-margin-lr">
+        <p className="card-margin-tb">{cardName}</p>
+        <div className="card-align-items">
+          <p className="card-margin-0 card-display ">$ {discountPrice}</p>
+          <h6 className="card-margin-0 card-display card-text-strick text-gray card-margin-lr">
             ${originalPrice}
-          </h4>
-          <h3 className="card-margin-0 card-display card-discount card-margin-lr">
-            {discountPercentage}
-          </h3>
+          </h6>
+          <h6 className="card-margin-0 card-display card-discount">
+            ( {discountPercentage} )
+          </h6>
         </div>
       </div>
       <Button
         name={buttonPrimary}
         className="btn-primary"
-        onClickFunc={onClickFuncPrimary}
+        onClickFunc={onClickFunc1}
       ></Button>
       <Button
         name={buttonSecondary}
         className="btn-secondary"
-        onClickFunc={onClickFuncSecondary}
+        onClickFunc={onClickFunc2}
       ></Button>
     </div>
   );

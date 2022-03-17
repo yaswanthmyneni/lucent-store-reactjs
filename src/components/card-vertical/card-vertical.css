@@ -1,9 +1,25 @@
-.card-vertical > button {
-  margin-bottom: 8px;
+.card {
+  padding: 4px;
+  border-radius: 5px;
 }
 
-.card-margin > p {
-  margin-top: 8px;
+.card-img-container {
+  height: 13rem;
+}
+
+.card-vertical > button {
+  margin-bottom: 4px;
+  padding: 0.3em 0;
+  border: 1px solid var(--color-green-600);
+  border-radius: 2px;
+}
+
+.card-vertical > button:hover {
+  border: 1px solid var(--color-green-600);
+}
+
+.card-margin-tb {
+  margin: 8px 0;
 }
 
 .card-margin-lr {
