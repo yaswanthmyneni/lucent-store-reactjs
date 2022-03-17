@@ -1,18 +1,21 @@
 @import "../../styles/utility.css";
 
-.wrapper {
+.product-page-wrapper {
   display: grid;
   grid-template-columns: 15rem 1fr;
-  grid-template-areas:
-    "header header"
-    "aside main"
-    "footer footer";
+  grid-template-areas: "aside main";
 }
 
 /* Main Section */
 .product-page-main {
   grid-area: main;
   margin: 0 1rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-container {
@@ -24,12 +27,10 @@
 
 /* Responsiveness */
 @media screen and (max-width: 768px) {
-  .wrapper {
+  .product-page-wrapper {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "header header"
-      "aside aside"
-      "main main"
-      "footer footer";
+      "aside"
+      "main";
   }
 }
