@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const AsideBar = () => {
   const [key, setKey] = useState(0);
+  
   // Product Context
   const {
     state: { sortBy },
@@ -14,11 +15,7 @@ const AsideBar = () => {
   // Reset Function
   const resetFunction = () => {
     setKey((prev) => prev + 1);
-    dispatch({ type: "SHIRTS", payload: false });
-    dispatch({ type: "YOGA_MATS", payload: false });
-    dispatch({ type: "PANTS", payload: false });
-    dispatch({ type: "SORT_BY", payload: true });
-    dispatch({ type: "RATING", payload: 0 });
+    dispatch({type: 'CLEAR'});
   };
 
   return (
