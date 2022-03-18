@@ -15,16 +15,18 @@ const ProductContextProvider = ({ children }) => {
     sortBy: true,
     rating: 0,
     productList: [],
-    loading:''
+    loading: '',
   });
 
   useEffect(() => {
     try {
       (async () => {
-        dispatch({ type: "LOADING", payload: "Loading..."});
+        dispatch({ type: "LOADING", payload: "Loading..." });
         const response = await axios.get("/api/products");
-        dispatch({ type: "PRODUCT_LIST", payload: response.data.products });
-        dispatch({ type: "LOADING", payload: ''});
+        if (response.status === 200) {
+          dispatch({ type: "PRODUCT_LIST", payload: response.data.products });
+          dispatch({ type: "LOADING", payload: "" });
+        }
       })();
     } catch (error) {
       console.error(error);
