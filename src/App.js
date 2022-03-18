@@ -1,5 +1,5 @@
 import React from "react";
-import { LandingPage, WishlistPage, ProductPage } from "./pages";
+import { LandingPage, WishlistPage, ProductPage, CartPage } from "./pages";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/products" element={<ProductPage />} />
       <Route path="/wishlist" element={<WishlistPage />} />
+      <Route path="/cart" element={<CartPage />} />
     </Routes>
   );
 };
