@@ -1,32 +1,45 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { productPageReducer } from "../reducers";
 
 const ProductContext = createContext();
 const useProductContext = () => useContext(ProductContext);
 
 const ProductContextProvider = ({ children }) => {
-  const [productsList, setProductList] = useState([]);
+  const [state, dispatch] = useReducer(productPageReducer, {
+    categoryName: {
+      yogamats: false,
+      pants: false,
+      shirts: false,
+    },
+    sortBy: true,
+    rating: 0,
+    productList: [],
+    loading: '',
+  });
 
   useEffect(() => {
     try {
       (async () => {
-        const data = await axios.get("/api/products");
-        setProductList(data.data.products);
+        dispatch({ type: "LOADING", payload: "Loading..." });
+        const response = await axios.get("/api/products");
+        if (response.status === 200) {
+          dispatch({ type: "PRODUCT_LIST", payload: response.data.products });
+          dispatch({ type: "LOADING", payload: "" });
+        }
       })();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
+  const value = {
+    state,
+    dispatch,
+  };
+
   return (
-    <ProductContext.Provider
-      value={{
-        productsList,
-      }}
-    >
-      {children}
-    </ProductContext.Provider>
+    <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
   );
 };
 
