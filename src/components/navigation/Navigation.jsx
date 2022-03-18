@@ -1,8 +1,19 @@
 import "./navigation.css";
 import { IconWithBadge } from "../index";
 import { NavLink } from "react-router-dom";
+import { useCartContext, useWishlistContext } from "../../context";
 
 const Navigation = () => {
+  // wishlist Context
+  const { wishlists } = useWishlistContext();
+  const wishlistCount = wishlists.length;
+
+  // cart context
+  const {
+    cartState: { cartList },
+  } = useCartContext();
+  const cartCount = cartList.length;
+
   return (
     <header className="header">
       <div className="navbar-container">
@@ -20,12 +31,12 @@ const Navigation = () => {
           <i className="fa-solid fa-store"></i>
         </NavLink>
         <NavLink to="/wishlist">
-          <IconWithBadge>
+          <IconWithBadge count={wishlistCount}>
             <i className="fas fa-heart icon-badge"></i>
           </IconWithBadge>
         </NavLink>
         <NavLink to="/cart">
-          <IconWithBadge className="m-r-2rem">
+          <IconWithBadge className="m-r-2rem" count={cartCount}>
             <i className="fas fa-shopping-cart icon-badge"></i>
           </IconWithBadge>
         </NavLink>
