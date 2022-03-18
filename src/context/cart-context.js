@@ -1,16 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
+import { cartReducer } from "../reducers";
 
 const CartContext = createContext();
 const useCartContext = () => useContext(CartContext);
-
-const cartReducer = (cartState, action) => {
-  switch (action.type) {
-    case "cartList":
-      return { ...cartState, cartList: action.payload };
-    default:
-      return cartState;
-  }
-};
 
 const CartContextProvider = ({ children }) => {
   const [cartState, dispatch] = useReducer(cartReducer, {
