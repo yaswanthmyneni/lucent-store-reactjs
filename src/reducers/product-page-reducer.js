@@ -32,6 +32,17 @@ const productPageReducer = (state, action) => {
       return { ...state, productList: action.payload };
     case "LOADING":
       return { ...state, loading: action.payload };
+    case "CLEAR":
+      return {
+        ...state,
+        categoryName: {
+          yogamats: false,
+          pants: false,
+          shirts: false,
+        },
+        sortBy: true,
+        rating: 0,
+      };
     default:
       return state;
   }
