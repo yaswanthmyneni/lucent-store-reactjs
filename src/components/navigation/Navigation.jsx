@@ -6,13 +6,11 @@ import { useCartContext, useWishlistContext } from "../../context";
 const Navigation = () => {
   // wishlist Context
   const { wishlists } = useWishlistContext();
-  const wishlistCount = wishlists.length;
 
   // cart context
   const {
     cartState: { cartList },
   } = useCartContext();
-  const cartCount = cartList.length;
 
   return (
     <header className="header">
@@ -31,12 +29,12 @@ const Navigation = () => {
           <i className="fa-solid fa-store"></i>
         </NavLink>
         <NavLink to="/wishlist">
-          <IconWithBadge count={wishlistCount}>
+          <IconWithBadge count={wishlists.length}>
             <i className="fas fa-heart icon-badge"></i>
           </IconWithBadge>
         </NavLink>
         <NavLink to="/cart">
-          <IconWithBadge className="m-r-2rem" count={cartCount}>
+          <IconWithBadge className="m-r-2rem" count={cartList.length}>
             <i className="fas fa-shopping-cart icon-badge"></i>
           </IconWithBadge>
         </NavLink>

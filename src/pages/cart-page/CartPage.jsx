@@ -1,10 +1,5 @@
 import "./cart-page.css";
-import {
-  CardHorizontal,
-  CartPrice,
-  Footer,
-  Navigation,
-} from "../../components";
+import { CardHorizontal, CartPrice } from "../../components";
 import { useCartContext, useWishlistContext } from "../../context";
 import { addToWishlist } from "../../utility";
 
@@ -32,7 +27,6 @@ const CartPage = () => {
 
   return (
     <>
-      <Navigation />
       <main>
         <h2 className="text-center">MY CART</h2>
         <div className="cart-page-wrapper">
@@ -66,7 +60,6 @@ const CartPage = () => {
           </section>
         </div>
       </main>
-      <Footer />
     </>
   );
 };

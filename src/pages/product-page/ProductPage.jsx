@@ -1,5 +1,5 @@
 import "./product-page.css";
-import { Navigation, Footer, CardVertical, AsideBar } from "../../components";
+import { CardVertical, AsideBar } from "../../components";
 import {
   useCartContext,
   useProductContext,
@@ -38,7 +38,6 @@ const ProductPage = () => {
 
   return (
     <>
-      <Navigation />
       <div className="product-page-wrapper">
         <AsideBar />
         <main className="product-page-main">
@@ -62,7 +61,6 @@ const ProductPage = () => {
           </div>
         </main>
       </div>
-      <Footer />
     </>
   );
 };

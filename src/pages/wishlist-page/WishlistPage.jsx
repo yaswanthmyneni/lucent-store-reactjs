@@ -1,9 +1,6 @@
 import "./wishlist-page.css";
-import { Navigation, Footer, CardVertical } from "../../components";
-import {
-  useCartContext,
-  useWishlistContext,
-} from "../../context";
+import { CardVertical } from "../../components";
+import { useCartContext, useWishlistContext } from "../../context";
 import { addToCart } from "../../utility";
 
 const WishlistPage = () => {
@@ -18,8 +15,6 @@ const WishlistPage = () => {
 
   return (
     <>
-      <Navigation />
-
       <main className="wishlist-page-main">
         <h3>All Products</h3>
         <div className="wishlist-container">
@@ -41,8 +36,6 @@ const WishlistPage = () => {
           ))}
         </div>
       </main>
-
-      <Footer />
     </>
   );
 };
