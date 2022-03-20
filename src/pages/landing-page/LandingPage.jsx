@@ -7,7 +7,7 @@ import { categoryDataList } from "../../data";
 const LandingPage = () => {
   return (
     <>
-      <main>
+      <main className="landing-page-container">
         <section className="hero">
           <div className="hero-wrapper">
             <div className="hero-text-container">
