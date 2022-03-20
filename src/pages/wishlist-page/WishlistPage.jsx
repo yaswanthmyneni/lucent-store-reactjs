@@ -18,22 +18,23 @@ const WishlistPage = () => {
       <main className="wishlist-page-main">
         <h3>All Products</h3>
         <div className="wishlist-container">
-          {wishlist.map((item) => (
-            <CardVertical
-              key={item._id}
-              cardData={item}
-              buttonPrimary="Add to cart"
-              buttonSecondary="Remove from wishlist"
-              onClickFunc1={() => {
-                addToCart(cartList, cartDispatch, item);
-              }}
-              onClickFunc2={() => {
-                setWishlist((prevWishlist) =>
-                  prevWishlist.filter((value) => value.id !== item.id)
-                );
-              }}
-            />
-          ))}
+          {wishlist.length > 0 &&
+            wishlist.map((item) => (
+              <CardVertical
+                key={item._id}
+                cardData={item}
+                buttonPrimary="Add to cart"
+                buttonSecondary="Remove from wishlist"
+                onClickFunc1={() => {
+                  addToCart(cartList, cartDispatch, item);
+                }}
+                onClickFunc2={() => {
+                  setWishlist((prevWishlist) =>
+                    prevWishlist.filter((value) => value.id !== item.id)
+                  );
+                }}
+              />
+            ))}
         </div>
       </main>
     </>
