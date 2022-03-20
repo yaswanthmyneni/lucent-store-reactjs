@@ -1,15 +1,20 @@
 import "./wishlist-page.css";
 import { Navigation, Footer, CardVertical } from "../../components";
-import { useCartContext, useProductContext, useWishlistContext } from "../../context";
+import {
+  useCartContext,
+  useWishlistContext,
+} from "../../context";
 import { addToCart } from "../../utility";
 
 const WishlistPage = () => {
-   // Wishlist Context
-   const { wishlists, setWishlists } = useWishlistContext();
+  // Wishlist Context
+  const { wishlists, setWishlists } = useWishlistContext();
 
-   // Cart Context
-   const { cartState, dispatch } = useCartContext();
-   const { cartList } = cartState;
+  // Cart Context
+  const {
+    cartState: { cartList },
+    cartDispatch,
+  } = useCartContext();
 
   return (
     <>
@@ -25,7 +30,7 @@ const WishlistPage = () => {
               buttonPrimary="Add to cart"
               buttonSecondary="Remove from wishlist"
               onClickFunc1={() => {
-                addToCart(cartList, dispatch, item);
+                addToCart(cartList, cartDispatch, item);
               }}
               onClickFunc2={() => {
                 setWishlists((prevWishlist) =>

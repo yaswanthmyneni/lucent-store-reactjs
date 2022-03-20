@@ -15,7 +15,7 @@ const CartPage = () => {
   // cart context
   const {
     cartState: { cartList },
-    dispatch,
+    cartDispatch,
   } = useCartContext();
 
   // cart price section calculations
@@ -46,7 +46,7 @@ const CartPage = () => {
                     addToWishlist(wishlists, setWishlists, item);
                   }}
                   onClickFunc2={() => {
-                    dispatch({
+                    cartDispatch({
                       type: "cartList",
                       payload: cartList.filter((value) => value.id !== item.id),
                     });

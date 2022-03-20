@@ -5,11 +5,11 @@ const CartContext = createContext();
 const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
-  const [cartState, dispatch] = useReducer(cartReducer, {
+  const [cartState, cartDispatch] = useReducer(cartReducer, {
     cartList: [],
   });
 
-  const value = { cartState, dispatch };
+  const value = { cartState, cartDispatch };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

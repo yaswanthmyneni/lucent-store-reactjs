@@ -17,7 +17,7 @@ import {
 const ProductPage = () => {
   // Product Context
   const {
-    state: { sortBy, categoryName, rating, productList, loading },
+    productPageState: { sortBy, categoryName, rating, productList, loading },
   } = useProductContext();
 
   // Wishlist Context
@@ -26,7 +26,7 @@ const ProductPage = () => {
   // Cart Context
   const {
     cartState: { cartList },
-    dispatch,
+    cartDispatch,
   } = useCartContext();
 
   // Filter Function
@@ -52,7 +52,7 @@ const ProductPage = () => {
                 buttonPrimary="Add to cart"
                 buttonSecondary="Add to wishlist"
                 onClickFunc1={() => {
-                  addToCart(cartList, dispatch, item);
+                  addToCart(cartList, cartDispatch, item);
                 }}
                 onClickFunc2={() => {
                   addToWishlist(wishlists, setWishlists, item);
