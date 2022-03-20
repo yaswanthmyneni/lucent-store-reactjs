@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import {
+  AuthContextProvider,
   CartContextProvider,
   ProductContextProvider,
   WishlistContextProvider,
@@ -15,13 +16,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartContextProvider>
-        <WishlistContextProvider>
-          <ProductContextProvider>
-            <App />
-          </ProductContextProvider>
-        </WishlistContextProvider>
-      </CartContextProvider>
+      <AuthContextProvider>
+        <CartContextProvider>
+          <WishlistContextProvider>
+            <ProductContextProvider>
+              <App />
+            </ProductContextProvider>
+          </WishlistContextProvider>
+        </CartContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
