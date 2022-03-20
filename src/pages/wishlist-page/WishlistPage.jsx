@@ -5,7 +5,7 @@ import { addToCart } from "../../utility";
 
 const WishlistPage = () => {
   // Wishlist Context
-  const { wishlists, setWishlists } = useWishlistContext();
+  const { wishlist, setWishlist } = useWishlistContext();
 
   // Cart Context
   const {
@@ -18,7 +18,7 @@ const WishlistPage = () => {
       <main className="wishlist-page-main">
         <h3>All Products</h3>
         <div className="wishlist-container">
-          {wishlists.map((item) => (
+          {wishlist.map((item) => (
             <CardVertical
               key={item._id}
               cardData={item}
@@ -28,7 +28,7 @@ const WishlistPage = () => {
                 addToCart(cartList, cartDispatch, item);
               }}
               onClickFunc2={() => {
-                setWishlists((prevWishlist) =>
+                setWishlist((prevWishlist) =>
                   prevWishlist.filter((value) => value.id !== item.id)
                 );
               }}

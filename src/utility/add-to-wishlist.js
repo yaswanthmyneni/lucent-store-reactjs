@@ -1,8 +1,8 @@
-const addToWishlist = (wishlists, setWishlists, item) => {
-  if (wishlists.find((element) => element.id === item.id)) {
-    setWishlists((prevWishlist) => prevWishlist);
+const addToWishlist = (wishlist, setWishlist, item) => {
+  if (wishlist.find((element) => element.id === item.id)) {
+    setWishlist((prevWishlist) => prevWishlist);
   } else {
-    setWishlists((prevWishlist) => [...prevWishlist, item]);
+    setWishlist((prevWishlist) => [...prevWishlist, item]);
   }
 };
 

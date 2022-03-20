@@ -21,7 +21,7 @@ const ProductPage = () => {
   } = useProductContext();
 
   // Wishlist Context
-  const { wishlists, setWishlists } = useWishlistContext();
+  const { wishlist, setWishlist } = useWishlistContext();
 
   // Cart Context
   const {
@@ -54,7 +54,7 @@ const ProductPage = () => {
                   addToCart(cartList, cartDispatch, item);
                 }}
                 onClickFunc2={() => {
-                  addToWishlist(wishlists, setWishlists, item);
+                  addToWishlist(wishlist, setWishlist, item);
                 }}
               />
             ))}

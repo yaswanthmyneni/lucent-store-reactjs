@@ -5,7 +5,7 @@ import { useCartContext, useWishlistContext } from "../../context";
 
 const Navigation = () => {
   // wishlist Context
-  const { wishlists } = useWishlistContext();
+  const { wishlist } = useWishlistContext();
 
   // cart context
   const {
@@ -29,7 +29,7 @@ const Navigation = () => {
           <i className="fa-solid fa-store"></i>
         </NavLink>
         <NavLink to="/wishlist">
-          <IconWithBadge count={wishlists.length}>
+          <IconWithBadge count={wishlist.length}>
             <i className="fas fa-heart icon-badge"></i>
           </IconWithBadge>
         </NavLink>

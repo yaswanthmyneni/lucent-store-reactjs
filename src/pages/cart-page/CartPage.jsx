@@ -5,7 +5,7 @@ import { addToWishlist } from "../../utility";
 
 const CartPage = () => {
   // wishlist Context
-  const { wishlists, setWishlists } = useWishlistContext();
+  const { wishlist, setWishlist } = useWishlistContext();
 
   // cart context
   const {
@@ -37,7 +37,7 @@ const CartPage = () => {
                   key={item._id}
                   cardData={item}
                   onClickFunc1={() => {
-                    addToWishlist(wishlists, setWishlists, item);
+                    addToWishlist(wishlist, setWishlist, item);
                   }}
                   onClickFunc2={() => {
                     cartDispatch({
