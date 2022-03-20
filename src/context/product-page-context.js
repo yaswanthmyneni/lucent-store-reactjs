@@ -6,7 +6,7 @@ const ProductContext = createContext();
 const useProductContext = () => useContext(ProductContext);
 
 const ProductContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(productPageReducer, {
+  const [productPageState, productPageDispatch] = useReducer(productPageReducer, {
     categoryName: {
       yogamats: false,
       pants: false,
@@ -21,11 +21,11 @@ const ProductContextProvider = ({ children }) => {
   useEffect(() => {
     try {
       (async () => {
-        dispatch({ type: "LOADING", payload: "Loading..." });
+        productPageDispatch({ type: "LOADING", payload: "Loading..." });
         const response = await axios.get("/api/products");
         if (response.status === 200) {
-          dispatch({ type: "PRODUCT_LIST", payload: response.data.products });
-          dispatch({ type: "LOADING", payload: "" });
+          productPageDispatch({ type: "PRODUCT_LIST", payload: response.data.products });
+          productPageDispatch({ type: "LOADING", payload: "" });
         }
       })();
     } catch (error) {
@@ -34,8 +34,8 @@ const ProductContextProvider = ({ children }) => {
   }, []);
 
   const value = {
-    state,
-    dispatch,
+    productPageState,
+    productPageDispatch,
   };
 
   return (

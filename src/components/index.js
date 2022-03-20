@@ -1,9 +1,9 @@
-import { Navigation } from "./navigation/Navigation";
-import { Footer } from "./footer/Footer";
-import { Category } from "./category/Category";
-import { IconWithBadge } from "./icon-with-badge/IconWithBadge";
-import { CardVertical } from "./card-vertical/CardVertical";
-import { AsideBar } from "./aside-bar/AsideBar";
-import { Button } from "./button/Button";
-
-export { Navigation, Footer, Category, IconWithBadge, CardVertical, AsideBar, Button };
+export { Navigation } from "./navigation/Navigation";
+export { Footer } from "./footer/Footer";
+export { Category } from "./category/Category";
+export { IconWithBadge } from "./icon-with-badge/IconWithBadge";
+export { CardVertical } from "./card-vertical/CardVertical";
+export { AsideBar } from "./aside-bar/AsideBar";
+export { Button } from "./button/Button";
+export { CardHorizontal } from "./card-horizontal/CardHorizontal";
+export { CartPrice } from "./cart-price/CartPrice";

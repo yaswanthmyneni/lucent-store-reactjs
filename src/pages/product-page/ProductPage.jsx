@@ -1,18 +1,33 @@
 import "./product-page.css";
-import { Navigation, Footer, CardVertical, AsideBar } from "../../components";
-import { useProductContext } from "../../context";
+import { CardVertical, AsideBar } from "../../components";
+import {
+  useCartContext,
+  useProductContext,
+  useWishlistContext,
+} from "../../context";
 import {
   getSortByCategory,
   getSortByPrice,
   getSortByRating,
   filterFunction,
+  addToCart,
+  addToWishlist,
 } from "../../utility";
 
 const ProductPage = () => {
   // Product Context
   const {
-    state: { sortBy, categoryName, rating, productList, loading },
+    productPageState: { sortBy, categoryName, rating, productList, loading },
   } = useProductContext();
+
+  // Wishlist Context
+  const { wishlist, setWishlist } = useWishlistContext();
+
+  // Cart Context
+  const {
+    cartState: { cartList },
+    cartDispatch,
+  } = useCartContext();
 
   // Filter Function
   const filteredProductList = filterFunction(
@@ -23,7 +38,6 @@ const ProductPage = () => {
 
   return (
     <>
-      <Navigation />
       <div className="product-page-wrapper">
         <AsideBar />
         <main className="product-page-main">
@@ -36,12 +50,17 @@ const ProductPage = () => {
                 cardData={item}
                 buttonPrimary="Add to cart"
                 buttonSecondary="Add to wishlist"
+                onClickFunc1={() => {
+                  addToCart(cartList, cartDispatch, item);
+                }}
+                onClickFunc2={() => {
+                  addToWishlist(wishlist, setWishlist, item);
+                }}
               />
             ))}
           </div>
         </main>
       </div>
-      <Footer />
     </>
   );
 };

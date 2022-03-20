@@ -1,13 +1,12 @@
 import React from "react";
 import "./landing-page.css";
 import cardImage from "../../assets/images/hero.jpg";
-import { Footer, Navigation, Category } from "../../components";
+import { Category } from "../../components";
 import { categoryDataList } from "../../data";
 
 const LandingPage = () => {
   return (
     <>
-      <Navigation />
       <main>
         <section className="hero">
           <div className="hero-wrapper">
@@ -37,7 +36,6 @@ const LandingPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };

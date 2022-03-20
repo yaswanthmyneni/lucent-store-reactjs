@@ -1,29 +1,42 @@
 import "./wishlist-page.css";
-import { Navigation, Footer, CardVertical } from "../../components";
-import { useProductContext } from "../../context";
+import { CardVertical } from "../../components";
+import { useCartContext, useWishlistContext } from "../../context";
+import { addToCart } from "../../utility";
 
 const WishlistPage = () => {
-  const { productsList } = useProductContext();
+  // Wishlist Context
+  const { wishlist, setWishlist } = useWishlistContext();
+
+  // Cart Context
+  const {
+    cartState: { cartList },
+    cartDispatch,
+  } = useCartContext();
 
   return (
     <>
-      <Navigation />
-
       <main className="wishlist-page-main">
         <h3>All Products</h3>
-        <div className="product-container">
-          {productsList.map((item) => (
-            <CardVertical
-              key={item.id}
-              cardData={item}
-              buttonPrimary="Add to cart"
-              buttonSecondary="Remove from wishlist"
-            />
-          ))}
+        <div className="wishlist-container">
+          {wishlist.length > 0 &&
+            wishlist.map((item) => (
+              <CardVertical
+                key={item._id}
+                cardData={item}
+                buttonPrimary="Add to cart"
+                buttonSecondary="Remove from wishlist"
+                onClickFunc1={() => {
+                  addToCart(cartList, cartDispatch, item);
+                }}
+                onClickFunc2={() => {
+                  setWishlist((prevWishlist) =>
+                    prevWishlist.filter((value) => value.id !== item.id)
+                  );
+                }}
+              />
+            ))}
         </div>
       </main>
-
-      <Footer />
     </>
   );
 };

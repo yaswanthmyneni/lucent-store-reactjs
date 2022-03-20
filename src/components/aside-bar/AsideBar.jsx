@@ -8,14 +8,14 @@ const AsideBar = () => {
   
   // Product Context
   const {
-    state: { sortBy },
-    dispatch,
+    productPageState: { sortBy },
+    productPageDispatch,
   } = useProductContext();
 
   // Reset Function
   const resetFunction = () => {
     setKey((prev) => prev + 1);
-    dispatch({type: 'CLEAR'});
+    productPageDispatch({type: 'CLEAR'});
   };
 
   return (
@@ -38,7 +38,7 @@ const AsideBar = () => {
                   type="checkbox"
                   id="yogamats"
                   onChange={(event) =>
-                    dispatch({
+                    productPageDispatch({
                       type: "YOGA_MATS",
                       payload: event.target.checked,
                     })
@@ -53,7 +53,7 @@ const AsideBar = () => {
                   type="checkbox"
                   id="shirts"
                   onChange={(event) =>
-                    dispatch({ type: "SHIRTS", payload: event.target.checked })
+                    productPageDispatch({ type: "SHIRTS", payload: event.target.checked })
                   }
                 />{" "}
                 Shirts
@@ -65,7 +65,7 @@ const AsideBar = () => {
                   type="checkbox"
                   id="pants"
                   onClick={(event) =>
-                    dispatch({ type: "PANTS", payload: event.target.checked })
+                    productPageDispatch({ type: "PANTS", payload: event.target.checked })
                   }
                 />{" "}
                 Pants
@@ -80,7 +80,7 @@ const AsideBar = () => {
                   type="radio"
                   id="low-to-high"
                   name="price"
-                  onChange={() => dispatch({ type: "SORT_BY", payload: false })}
+                  onChange={() => productPageDispatch({ type: "SORT_BY", payload: false })}
                 />{" "}
                 Price - Low to high
               </label>
@@ -92,7 +92,7 @@ const AsideBar = () => {
                   id="high-to-low"
                   name="price"
                   checked={sortBy}
-                  onChange={() => dispatch({ type: "SORT_BY", payload: true })}
+                  onChange={() => productPageDispatch({ type: "SORT_BY", payload: true })}
                 />{" "}
                 Price - High to low
               </label>
@@ -106,7 +106,7 @@ const AsideBar = () => {
                   type="radio"
                   id="star-4"
                   name="rating"
-                  onChange={() => dispatch({ type: "RATING", payload: 4 })}
+                  onChange={() => productPageDispatch({ type: "RATING", payload: 4 })}
                 />{" "}
                 4 Star & above
               </label>
@@ -117,7 +117,7 @@ const AsideBar = () => {
                   type="radio"
                   id="star-3"
                   name="rating"
-                  onChange={() => dispatch({ type: "RATING", payload: 3 })}
+                  onChange={() => productPageDispatch({ type: "RATING", payload: 3 })}
                 />{" "}
                 3 Star & above
               </label>
@@ -128,7 +128,7 @@ const AsideBar = () => {
                   type="radio"
                   id="star-2"
                   name="rating"
-                  onChange={() => dispatch({ type: "RATING", payload: 2 })}
+                  onChange={() => productPageDispatch({ type: "RATING", payload: 2 })}
                 />{" "}
                 2 Star & above
               </label>
@@ -139,7 +139,7 @@ const AsideBar = () => {
                   type="radio"
                   id="star-1"
                   name="rating"
-                  onChange={() => dispatch({ type: "RATING", payload: 1 })}
+                  onChange={() => productPageDispatch({ type: "RATING", payload: 1 })}
                 />{" "}
                 1 Star & above
               </label>

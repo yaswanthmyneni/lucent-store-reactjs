@@ -1,6 +1,10 @@
-import {
+export {
   useProductContext,
   ProductContextProvider,
 } from "./product-page-context";
+export {
+  useWishlistContext,
+  WishlistContextProvider,
+} from "./wishlist-context";
 
-export { useProductContext, ProductContextProvider };
+export { useCartContext, CartContextProvider } from "./cart-context";
