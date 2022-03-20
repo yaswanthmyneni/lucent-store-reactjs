@@ -1,15 +1,12 @@
 :root {
   --z-index-header: 10;
-}
-
-#root {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  position: relative;
+  min-height: 100vh;
 }
 
 .cursor {

@@ -27,7 +27,7 @@ const CartPage = () => {
 
   return (
     <>
-      <main>
+      <main className="cart-main">
         <h2 className="text-center">MY CART</h2>
         <div className="cart-page-wrapper">
           <section className="cart-product">

@@ -1,5 +1,9 @@
 @import "../../styles/utility.css";
 
+.landing-page-container {
+  padding-bottom: 6.8rem;
+}
+
 /* Hero Section */
 .hero {
   background-color: var(--color-green-100);
