@@ -6,6 +6,9 @@ import { submitSignInDetails } from "../../utility";
 import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
+  // getting encodedToken from localStorage
+  const encodedToken = localStorage.getItem("token");
+
   // Authentication Context
   const {
     authState: { email, password },
@@ -56,7 +59,7 @@ const SignInPage = () => {
               name="SignIn"
               className="btn-primary"
               onClickFunc={(event) =>
-                submitSignInDetails(event, email, password, navigate)
+                submitSignInDetails(event, email, password, navigate, encodedToken)
               }
             />
             <Button
@@ -67,7 +70,8 @@ const SignInPage = () => {
                   event,
                   "adarshbalika@gmail.com",
                   "adarshbalika",
-                  navigate
+                  navigate,
+                  encodedToken
                 )
               }
             />

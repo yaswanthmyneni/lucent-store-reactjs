@@ -1,8 +1,17 @@
 import axios from "axios";
 
-const submitSignInDetails = async (event, email, password, navigate) => {
+const submitSignInDetails = async (
+  event,
+  email,
+  password,
+  navigate,
+  encodedToken
+) => {
   try {
     event.preventDefault();
+    if (encodedToken) {
+      return console.log("already logged in");
+    }
     const response = await axios.post("/api/auth/login", {
       email: email,
       password: password,
@@ -22,10 +31,14 @@ const submitSignUpDetails = async (
   password,
   firstName,
   lastName,
-  navigate
+  navigate,
+  encodedToken
 ) => {
   try {
     event.preventDefault();
+    if (encodedToken) {
+      return console.log("already logged in");
+    }
     const response = await axios.post("/api/auth/signup", {
       firstName: firstName,
       lastName: lastName,
