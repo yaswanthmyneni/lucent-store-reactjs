@@ -15,6 +15,9 @@ import {
 } from "../../utility";
 
 const ProductPage = () => {
+  // getting encodedToken from localStorage
+  const encodedToken = localStorage.getItem("token");
+
   // Product Context
   const {
     productPageState: { sortBy, categoryName, rating, productList, loading },
@@ -51,10 +54,10 @@ const ProductPage = () => {
                 buttonPrimary="Add to cart"
                 buttonSecondary="Add to wishlist"
                 onClickFunc1={() => {
-                  addToCart(cartList, cartDispatch, item);
+                  encodedToken && addToCart(cartList, cartDispatch, item);
                 }}
                 onClickFunc2={() => {
-                  addToWishlist(wishlist, setWishlist, item);
+                  encodedToken && addToWishlist(wishlist, setWishlist, item);
                 }}
               />
             ))}
