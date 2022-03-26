@@ -1,7 +1,7 @@
 import "./cart-page.css";
 import { CardHorizontal, CartPrice } from "../../components";
 import { useCartContext, useWishlistContext } from "../../context";
-import { addToWishlist } from "../../utility";
+import { addToWishlist, removeFromCart } from "../../utility";
 
 const CartPage = () => {
   // wishlist Context
@@ -15,7 +15,7 @@ const CartPage = () => {
 
   // cart price section calculations
   const price = cartList.reduce(
-    (acc, item) => acc + Number(item.originalPrice),
+    (acc, item) => acc + Number(item.qty) * Number(item.originalPrice),
     0
   );
   const discountPrice = cartList.reduce(
@@ -40,10 +40,7 @@ const CartPage = () => {
                     addToWishlist(wishlist, setWishlist, item);
                   }}
                   onClickFunc2={() => {
-                    cartDispatch({
-                      type: "cartList",
-                      payload: cartList.filter((value) => value.id !== item.id),
-                    });
+                    removeFromCart(cartDispatch, item);
                   }}
                 />
               ))}
