@@ -1,7 +1,7 @@
 import "./wishlist-page.css";
 import { CardVertical } from "../../components";
 import { useCartContext, useWishlistContext } from "../../context";
-import { addToCart } from "../../utility";
+import { addToCart, removeFromWishlist } from "../../utility";
 
 const WishlistPage = () => {
   // Wishlist Context
@@ -29,9 +29,7 @@ const WishlistPage = () => {
                   addToCart(cartList, cartDispatch, item);
                 }}
                 onClickFunc2={() => {
-                  setWishlist((prevWishlist) =>
-                    prevWishlist.filter((value) => value.id !== item.id)
-                  );
+                  removeFromWishlist(setWishlist, item);
                 }}
               />
             ))}

@@ -4,8 +4,13 @@ export {
   getSortByRating,
   filterFunction,
 } from "./filter-functions";
-export { addToCart } from "./add-to-cart";
-export { addToWishlist } from "./add-to-wishlist";
+export {
+  addToCart,
+  removeFromCart,
+  incrementQytInCartList,
+  decrementQytInCartList,
+} from "./cart-functions";
+export { addToWishlist, removeFromWishlist } from "./wishlist-functions";
 export {
   submitSignInDetails,
   submitSignUpDetails,
