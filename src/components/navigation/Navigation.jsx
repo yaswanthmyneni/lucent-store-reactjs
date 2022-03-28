@@ -3,7 +3,6 @@ import { IconWithBadge } from "../index";
 import { NavLink, useLocation } from "react-router-dom";
 import { useWishlistContext, useCartContext } from "../../context";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 const Navigation = () => {
   // wishlist Context
@@ -24,30 +23,8 @@ const Navigation = () => {
   const [logout, setLogout] = useState(false);
 
   useEffect(() => {
-    const encodedToken = localStorage.getItem("token");
-    const cartList = JSON.parse(localStorage.getItem("cartList"));
-    const wishlist = JSON.parse(localStorage.getItem("wishlist"));
     if (logout) {
-      cartList?.map((item) => {
-        return (async () =>
-          await axios({
-            method: "DELETE",
-            url: `/api/user/cart/${item._id}`,
-            headers: { authorization: encodedToken },
-          }))();
-      });
-      wishlist?.map((item) => {
-        return (async () =>
-          await axios({
-            method: "DELETE",
-            url: `/api/user/wishlist/${item._id}`,
-            headers: { authorization: encodedToken },
-          }))();
-      });
-      localStorage.clear();
-      setWishlist([]);
-      cartDispatch({ type: "cartList", payload: [] });
-      setLogout(false);
+      window.location.reload();
     }
   }, [setWishlist, cartDispatch, logout]);
 
@@ -69,6 +46,7 @@ const Navigation = () => {
             to="/logout"
             onClick={() => {
               setLogout(true);
+              localStorage.clear();
             }}
           >
             <h5 className="navbar-m-lr-1">LOGOUT</h5>

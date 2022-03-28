@@ -1,50 +1,44 @@
 import axios from "axios";
+import { apiCall } from "./apiCall";
 
-const addToCart = (cartList, dispatch, item) => {
-  const encodedToken = localStorage.getItem("token");
-
-  if (cartList.find((element) => element.id === item.id)) {
-    console.log("already present");
-  } else {
-    (async () => {
-      const response = await axios({
-        method: "post",
-        url: "/api/user/cart",
-        headers: { authorization: encodedToken },
-        data: {
-          product: item,
-        },
-      });
-      localStorage.setItem("cartList", JSON.stringify(response.data.cart));
+const addToCart = async (cartList, dispatch, item) => {
+  try {
+    const encodedToken = localStorage.getItem("token");
+    if (cartList.find((element) => element.id === item.id)) {
+      console.log("already present");
+    } else {
+      const response = await apiCall("post", "/api/user/cart", encodedToken, item);
       dispatch({
         type: "cartList",
         payload: response.data.cart,
       });
-    })();
+    }
+  } catch (error) {
+    console.error(error);
   }
 };
 
-const removeFromCart = (dispatch, item) => {
-  const encodedToken = localStorage.getItem("token");
-
-  (async () => {
-    const response = await axios({
-      method: "DELETE",
-      url: `/api/user/cart/${item._id}`,
-      headers: { authorization: encodedToken },
-    });
-    localStorage.setItem("cartList", JSON.stringify(response.data.cart));
+const removeFromCart = async (dispatch, item) => {
+  try {
+    const encodedToken = localStorage.getItem("token");
+    const response = await apiCall(
+      "DELETE",
+      `/api/user/cart/${item._id}`,
+      encodedToken,
+      item
+    );
     dispatch({
       type: "cartList",
       payload: response.data.cart,
     });
-  })();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const incrementQytInCartList = (dispatch, id) => {
-  const encodedToken = localStorage.getItem("token");
-
-  (async () => {
+const incrementQytInCartList = async (dispatch, id) => {
+  try {
+    const encodedToken = localStorage.getItem("token");    
     const response = await axios({
       method: "post",
       url: `/api/user/cart/${id}`,
@@ -55,22 +49,21 @@ const incrementQytInCartList = (dispatch, id) => {
         },
       },
     });
-    localStorage.setItem("cartList", JSON.stringify(response.data.cart));
     dispatch({
       type: "cartList",
       payload: response.data.cart,
     });
-  })();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const decrementQytInCartList = (dispatch, id, qty) => {
-  const encodedToken = localStorage.getItem("token");
-
-  if (qty === 1) {
-    return console.log("no more decrements");
-  }
-
-  (async () => {
+const decrementQytInCartList = async (dispatch, id, qty) => {
+  try {
+    const encodedToken = localStorage.getItem("token");
+    if (qty === 1) {
+      return console.log("no more decrements");
+    }
     const response = await axios({
       method: "post",
       url: `/api/user/cart/${id}`,
@@ -81,12 +74,13 @@ const decrementQytInCartList = (dispatch, id, qty) => {
         },
       },
     });
-    localStorage.setItem("cartList", JSON.stringify(response.data.cart));
     dispatch({
       type: "cartList",
       payload: response.data.cart,
     });
-  })();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export {

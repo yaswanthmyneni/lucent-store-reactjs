@@ -1,37 +1,37 @@
-import axios from "axios";
+import { apiCall } from "./apiCall";
 
-const addToWishlist = (wishlist, setWishlist, item) => {
-  const encodedToken = localStorage.getItem("token");
-
-  if (wishlist.find((element) => element.id === item.id)) {
-    console.log("already present");
-  } else {
-    (async () => {
-      const response = await axios({
-        method: "post",
-        url: "/api/user/wishlist",
-        headers: { authorization: encodedToken },
-        data: {
-          product: item,
-        },
-      });
-      localStorage.setItem("wishlist", JSON.stringify(response.data.wishlist));
+const addToWishlist = async (wishlist, setWishlist, item) => {
+  try {
+    const encodedToken = localStorage.getItem("token");
+    if (wishlist.find((element) => element.id === item.id)) {
+      console.log("already present");
+    } else {
+      const response = await apiCall(
+        "post",
+        `/api/user/wishlist`,
+        encodedToken,
+        item
+      );
       setWishlist(response.data.wishlist);
-    })();
+    }
+  } catch (error) {
+    console.error(error);
   }
 };
-const removeFromWishlist = (setWishlist, item) => {
-  const encodedToken = localStorage.getItem("token");
 
-  (async () => {
-    const response = await axios({
-      method: "DELETE",
-      url: `/api/user/wishlist/${item._id}`,
-      headers: { authorization: encodedToken },
-    });
-    localStorage.setItem("wishlist", JSON.stringify(response.data.wishlist));
+const removeFromWishlist = async (setWishlist, item) => {
+  try {
+    const encodedToken = localStorage.getItem("token");
+    const response = await apiCall(
+      "DELETE",
+      `/api/user/wishlist/${item._id}`,
+      encodedToken,
+      item
+    );
     setWishlist(response.data.wishlist);
-  })();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export { addToWishlist, removeFromWishlist };
