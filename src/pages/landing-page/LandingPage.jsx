@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./landing-page.css";
 import cardImage from "../../assets/images/hero.jpg";
-import { Category } from "../../components";
-import { categoryDataList } from "../../data";
+import { CategoryCard } from "../../components";
+import { apiCall } from "../../utility";
 
 const LandingPage = () => {
+  const [categoryList, setCategoryList] = useState([]);
+
+  useEffect(() => {
+    try {
+      (async () => {
+        const response = await apiCall("get", "/api/categories");
+        if (response.status === 200) {
+          setCategoryList(response.data.categories);
+        }
+      })();
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
   return (
     <>
       <main className="landing-page-container">
@@ -29,9 +44,9 @@ const LandingPage = () => {
 
         <section id="category" className="m-top-bottom">
           <h2 className="text-center">CATEGORIES</h2>
-          <div className="category-container">
-            {categoryDataList.map((item) => (
-              <Category key={item.id} categoryData={item} />
+          <div className="categories-container">
+            {categoryList.map((item, index) => (
+              <CategoryCard key={item._id} categoryData={item} index={index} />
             ))}
           </div>
         </section>
