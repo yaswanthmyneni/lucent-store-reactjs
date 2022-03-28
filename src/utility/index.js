@@ -15,3 +15,4 @@ export {
   submitSignInDetails,
   submitSignUpDetails,
 } from "./authentication-functions";
+export { apiCall } from "./apiCall";
