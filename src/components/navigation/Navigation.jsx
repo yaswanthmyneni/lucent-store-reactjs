@@ -2,14 +2,16 @@ import "./navigation.css";
 import { IconWithBadge } from "../index";
 import { NavLink, useLocation } from "react-router-dom";
 import { useWishlistContext, useCartContext } from "../../context";
+import { useEffect, useState } from "react";
 
 const Navigation = () => {
   // wishlist Context
-  const { wishlist } = useWishlistContext();
+  const { wishlist, setWishlist } = useWishlistContext();
 
   // cart context
   const {
     cartState: { cartList },
+    cartDispatch,
   } = useCartContext();
 
   // getting encodedToken from localStorage
@@ -17,6 +19,14 @@ const Navigation = () => {
 
   // from react-router-dom
   const path = useLocation();
+
+  const [logout, setLogout] = useState(false);
+
+  useEffect(() => {
+    if (logout) {
+      window.location.reload();
+    }
+  }, [setWishlist, cartDispatch, logout]);
 
   return (
     <header className="header">
@@ -34,7 +44,10 @@ const Navigation = () => {
           <NavLink
             className="navbar-m-left-auto navbar"
             to="/logout"
-            onClick={() => localStorage.removeItem("token")}
+            onClick={() => {
+              setLogout(true);
+              localStorage.clear();
+            }}
           >
             <h5 className="navbar-m-lr-1">LOGOUT</h5>
           </NavLink>

@@ -1,8 +1,12 @@
 import "./card-horizontal.css";
 import { Button } from "../index";
+import { useCartContext } from "../../context";
+import { decrementQytInCartList, incrementQytInCartList } from "../../utility";
 
 const CardHorizontal = ({ cardData, onClickFunc1, onClickFunc2 }) => {
+  const { cartDispatch } = useCartContext();
   const {
+    _id,
     badgeName,
     image,
     cardName,
@@ -10,6 +14,7 @@ const CardHorizontal = ({ cardData, onClickFunc1, onClickFunc2 }) => {
     discountPrice,
     originalPrice,
     discountPercentage,
+    qty,
   } = cardData;
 
   return (
@@ -21,6 +26,19 @@ const CardHorizontal = ({ cardData, onClickFunc1, onClickFunc2 }) => {
       <div className="product-card-flex">
         <h4 className="margin-tb-4px"> {cardName}</h4>
         <p className="margin-tb-4px">{brandName}</p>
+        <div className="card-horizontal-flex">
+          <Button
+            name="-"
+            className="btn-primary"
+            onClickFunc={() => decrementQytInCartList(cartDispatch, _id, qty)}
+          />
+          <h4>{qty}</h4>
+          <Button
+            name="+"
+            className="btn-primary"
+            onClickFunc={() => incrementQytInCartList(cartDispatch, _id)}
+          />
+        </div>
         <div className="card-align-items card-margin-bottom">
           <p className="card-margin-0 card-display">$ {discountPrice}</p>
           <h6 className="card-margin-0 card-display card-text-strick text-gray card-margin-lr">
@@ -37,7 +55,7 @@ const CardHorizontal = ({ cardData, onClickFunc1, onClickFunc2 }) => {
         />
         <Button
           name="Remove from cart"
-          className="btn-secondary product-m-top"
+          className="btn-secondary product-m-top card-Horizontal-btn-secondary"
           onClickFunc={onClickFunc2}
         />
       </div>
