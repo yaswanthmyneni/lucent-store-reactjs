@@ -1,0 +1,35 @@
+/* Category Section */
+.category-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-green-600);
+  padding: 3rem 1rem 0 1rem;
+  transition: all 0.3s linear;
+  border-radius: 10px;
+}
+
+.category-container:hover {
+  transform: scale(1.1);
+}
+
+.category-container h4 {
+  color: var(--color-white);
+}
+
+.category-img-container {
+  width: 10rem;
+  height: 9rem;
+}
+
+.category-img-container img {
+  border-radius: 5px;
+}
+
+.m-top-bottom {
+  margin: 2.5rem 0;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
