@@ -4,6 +4,14 @@
   padding-bottom: 6.8rem;
 }
 
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 /* Hero Section */
 .hero {
   background-color: var(--color-green-100);
