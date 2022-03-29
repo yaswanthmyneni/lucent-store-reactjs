@@ -3,6 +3,8 @@ export {
   getSortByCategory,
   getSortByRating,
   filterFunction,
+  getSortByRange,
+  getSortBySearch,
 } from "./filter-functions";
 export {
   addToCart,
