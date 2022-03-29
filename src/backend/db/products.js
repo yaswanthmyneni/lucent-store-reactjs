@@ -10,7 +10,7 @@ export const products = [
   {
     _id: uuid(),
     badgeName: "sale",
-    image: cardImage,
+    image: "https://m.media-amazon.com/images/I/61bKHkUCNcL._UX569_.jpg",
     cardName: "Pant",
     brandName: "Isha Life",
     discountPrice: "249",
@@ -22,7 +22,8 @@ export const products = [
   {
     _id: uuid(),
     badgeName: "sale",
-    image: cardImage,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQq0lD1n_lrZaei9kboSj2UrYaiVirMUbgMw&usqp=CAU",
     cardName: "Shirt",
     brandName: "Isha Life",
     discountPrice: "149",
@@ -46,7 +47,7 @@ export const products = [
   {
     _id: uuid(),
     badgeName: "sale",
-    image: cardImage,
+    image: "https://m.media-amazon.com/images/I/61bKHkUCNcL._UX569_.jpg",
     cardName: "Pant",
     brandName: "Isha Life",
     discountPrice: "199",
@@ -58,7 +59,8 @@ export const products = [
   {
     _id: uuid(),
     badgeName: "sale",
-    image: cardImage,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQq0lD1n_lrZaei9kboSj2UrYaiVirMUbgMw&usqp=CAU",
     cardName: "Shirt",
     brandName: "Isha Life",
     discountPrice: "19",
@@ -82,7 +84,7 @@ export const products = [
   {
     _id: uuid(),
     badgeName: "sale",
-    image: cardImage,
+    image: "https://m.media-amazon.com/images/I/61bKHkUCNcL._UX569_.jpg",
     cardName: "Pant",
     brandName: "Isha Life",
     discountPrice: "99",
@@ -94,7 +96,8 @@ export const products = [
   {
     _id: uuid(),
     badgeName: "sale",
-    image: cardImage,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQq0lD1n_lrZaei9kboSj2UrYaiVirMUbgMw&usqp=CAU",
     cardName: "Shirt",
     brandName: "Isha Life",
     discountPrice: "190",

@@ -5,6 +5,7 @@
   grid-template-columns: 15rem 1fr;
   grid-template-areas: "aside main";
   padding-bottom: 6.8rem;
+  margin-top: 1rem;
 }
 
 /* Main Section */
