@@ -28,6 +28,10 @@ const productPageReducer = (state, action) => {
       };
     case "RATING":
       return { ...state, rating: action.payload };
+    case "RANGE":
+      return { ...state, range: action.payload };
+    case "SEARCH":
+      return { ...state, searchParam: action.payload };
     case "PRODUCT_LIST":
       return { ...state, productList: action.payload };
     case "LOADING":
@@ -42,6 +46,8 @@ const productPageReducer = (state, action) => {
         },
         sortBy: true,
         rating: 0,
+        range: "200",
+        searchParam: "",
       };
     default:
       return state;

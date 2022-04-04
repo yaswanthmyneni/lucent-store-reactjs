@@ -44,6 +44,22 @@ const getSortByRating = (productList, rating) => {
     return sortByRatingList.filter((item) => item.rating >= rating);
 };
 
+const getSortByRange = (productList, range) => {
+  const sortByRatingList = [...productList];
+  return sortByRatingList.filter((item) => Number(item.discountPrice) <= Number(range));
+};
+
+const getSortBySearch = (productList, searchParam, categoryName) => {
+  const sortByRatingList = [...productList];
+  return sortByRatingList.filter(
+    (item) =>
+      item.categoryName
+        .toString()
+        .toLowerCase()
+        .indexOf(searchParam.toLowerCase()) > -1
+  );
+};
+
 const filterFunction =
   (...restFunctions) =>
   (productList, state) =>
@@ -53,4 +69,11 @@ const filterFunction =
       productList
     );
 
-export { getSortByPrice, getSortByCategory, getSortByRating, filterFunction };
+export {
+  getSortByPrice,
+  getSortByCategory,
+  getSortByRating,
+  filterFunction,
+  getSortByRange,
+  getSortBySearch,
+};

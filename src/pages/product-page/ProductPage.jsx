@@ -10,6 +10,8 @@ import {
   getSortByPrice,
   getSortByRating,
   filterFunction,
+  getSortByRange,
+  getSortBySearch,
   addToCart,
   addToWishlist,
 } from "../../utility";
@@ -20,7 +22,15 @@ const ProductPage = () => {
 
   // Product Context
   const {
-    productPageState: { sortBy, categoryName, rating, productList, loading },
+    productPageState: {
+      sortBy,
+      categoryName,
+      rating,
+      productList,
+      loading,
+      range,
+      searchParam,
+    },
   } = useProductContext();
 
   // Wishlist Context
@@ -33,11 +43,18 @@ const ProductPage = () => {
   } = useCartContext();
 
   // Filter Function
-  const filteredProductList = filterFunction(
+  const partiallyFilteredList = filterFunction(
     getSortByPrice,
     getSortByCategory,
-    getSortByRating
-  )(productList, [sortBy, categoryName, rating]);
+    getSortByRating,
+    getSortByRange
+  )(productList, [sortBy, categoryName, rating, range]);
+
+  const filteredProductList = getSortBySearch(
+    partiallyFilteredList,
+    searchParam,
+    categoryName
+  );
 
   return (
     <>

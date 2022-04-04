@@ -25,7 +25,8 @@
 .search-bar-input {
   width: 15rem;
   border: none;
-  outline: none;
+  outline: 0;
+  color: var(--color-white);
   background-color: var(--color-green-600);
 }
 

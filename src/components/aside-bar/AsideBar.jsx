@@ -11,6 +11,7 @@ const AsideBar = () => {
     productPageState: {
       sortBy,
       categoryName: { yogamats, pants, shirts },
+      range,
     },
     productPageDispatch,
   } = useProductContext();
@@ -33,6 +34,28 @@ const AsideBar = () => {
           ></Button>
         </div>
         <div className="filters">
+          <ul className="ul-none aside-ul">
+            <h5>Price Range</h5>
+            <li>
+              <label htmlFor="range">
+                <input
+                  type="range"
+                  id="range"
+                  min="0"
+                  max="500"
+                  step="50"
+                  value={range}
+                  onChange={(event) => {
+                    productPageDispatch({
+                      type: "RANGE",
+                      payload: event.target.value,
+                    });
+                  }}
+                />
+                {range}
+              </label>
+            </li>
+          </ul>
           <ul className="ul-none aside-ul">
             <h5>Category</h5>
             <li>
@@ -73,7 +96,7 @@ const AsideBar = () => {
                   type="checkbox"
                   checked={pants}
                   id="pants"
-                  onClick={(event) =>
+                  onChange={(event) =>
                     productPageDispatch({
                       type: "PANTS",
                       payload: event.target.checked,

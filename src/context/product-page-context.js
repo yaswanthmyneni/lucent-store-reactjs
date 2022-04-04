@@ -18,6 +18,8 @@ const ProductContextProvider = ({ children }) => {
       rating: 0,
       productList: [],
       loading: "",
+      range: "200",
+      searchParam: "",
     }
   );
 

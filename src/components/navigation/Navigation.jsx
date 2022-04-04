@@ -1,17 +1,26 @@
 import "./navigation.css";
 import { IconWithBadge } from "../index";
 import { NavLink, useLocation } from "react-router-dom";
-import { useWishlistContext, useCartContext } from "../../context";
+import {
+  useWishlistContext,
+  useCartContext,
+  useProductContext,
+} from "../../context";
 import { useEffect, useState } from "react";
 
 const Navigation = () => {
+  // product page context
+  const {
+    productPageState: { searchParam },
+    productPageDispatch,
+  } = useProductContext();
+
   // wishlist Context
-  const { wishlist, setWishlist } = useWishlistContext();
+  const { wishlist } = useWishlistContext();
 
   // cart context
   const {
     cartState: { cartList },
-    cartDispatch,
   } = useCartContext();
 
   // getting encodedToken from localStorage
@@ -26,7 +35,7 @@ const Navigation = () => {
     if (logout) {
       window.location.reload();
     }
-  }, [setWishlist, cartDispatch, logout]);
+  }, [logout]);
 
   return (
     <header className="header">
@@ -54,7 +63,17 @@ const Navigation = () => {
         )}
         {path.pathname === "/products" && (
           <div className="search-bar-border navbar-m-lr-1">
-            <input className="input search-bar-input" type="text" />
+            <input
+              className="input search-bar-input"
+              type="text"
+              value={searchParam}
+              onChange={(e) => {
+                productPageDispatch({
+                  type: "SEARCH",
+                  payload: e.target.value,
+                });
+              }}
+            />
             <i className="fas fa-search"></i>
           </div>
         )}
