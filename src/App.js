@@ -7,6 +7,7 @@ import {
   SignInPage,
   SignUpPage,
   LogoutPage,
+  ErrorPage,
 } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { Footer, Navigation } from "./components";
@@ -17,6 +18,7 @@ const App = () => {
       <Navigation />
 
       <Routes>
+        <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
