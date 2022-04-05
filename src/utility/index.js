@@ -17,4 +17,4 @@ export {
   submitSignInDetails,
   submitSignUpDetails,
 } from "./authentication-functions";
-export { apiCall } from "./apiCall";
+export { apiCall } from "./api-call";
