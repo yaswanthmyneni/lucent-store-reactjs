@@ -1,31 +1,11 @@
 import React from "react";
-import {
-  LandingPage,
-  ProductPage,
-  WishlistPage,
-  CartPage,
-  SignInPage,
-  SignUpPage,
-  LogoutPage,
-} from "./pages";
-import { Route, Routes } from "react-router-dom";
-import { Footer, Navigation } from "./components";
+import { Footer, Navigation, Routing } from "./components";
 
 const App = () => {
   return (
     <>
       <Navigation />
-
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/wishlist" element={<WishlistPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/logout" element={<LogoutPage />} />
-      </Routes>
-
+      <Routing />
       <Footer />
     </>
   );

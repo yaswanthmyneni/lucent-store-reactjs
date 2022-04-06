@@ -34,19 +34,15 @@ const getSortByRating = (productList, rating) => {
   const sortByRatingList = [...productList];
 
   if (rating < 1) return sortByRatingList;
-  if (rating >= 4)
-    return sortByRatingList.filter((item) => item.rating >= rating);
-  if (rating >= 3)
-    return sortByRatingList.filter((item) => item.rating >= rating);
-  if (rating >= 2)
-    return sortByRatingList.filter((item) => item.rating >= rating);
   if (rating >= 1)
     return sortByRatingList.filter((item) => item.rating >= rating);
 };
 
 const getSortByRange = (productList, range) => {
   const sortByRatingList = [...productList];
-  return sortByRatingList.filter((item) => Number(item.discountPrice) <= Number(range));
+  return sortByRatingList.filter(
+    (item) => Number(item.discountPrice) <= Number(range)
+  );
 };
 
 const getSortBySearch = (productList, searchParam, categoryName) => {

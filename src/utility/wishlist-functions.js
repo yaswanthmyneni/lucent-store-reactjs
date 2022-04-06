@@ -1,4 +1,4 @@
-import { apiCall } from "./apiCall";
+import { apiCall } from "./api-call";
 
 const addToWishlist = async (wishlist, setWishlist, item) => {
   try {
@@ -10,7 +10,7 @@ const addToWishlist = async (wishlist, setWishlist, item) => {
         "post",
         `/api/user/wishlist`,
         encodedToken,
-        item
+        { product: item }
       );
       setWishlist(response.data.wishlist);
     }
@@ -26,7 +26,6 @@ const removeFromWishlist = async (setWishlist, item) => {
       "DELETE",
       `/api/user/wishlist/${item._id}`,
       encodedToken,
-      item
     );
     setWishlist(response.data.wishlist);
   } catch (error) {

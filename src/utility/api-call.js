@@ -1,13 +1,11 @@
 import axios from "axios";
-const apiCall = async (method, url, encodedToken, item) => {
+const apiCall = async (method, url, encodedToken, body) => {
   try {
     const response = await axios({
       method: method,
       url: url,
       headers: { authorization: encodedToken },
-      data: {
-        product: item,
-      },
+      data: body,
     });
     return response;
   } catch (error) {

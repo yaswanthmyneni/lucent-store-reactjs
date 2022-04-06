@@ -5,3 +5,4 @@ export { CartPage } from "./cart-page/CartPage";
 export { SignInPage } from "./signin-page/SignInPage";
 export { SignUpPage } from "./signup-page/SignUpPage";
 export { LogoutPage } from "./logout-page/LogoutPage";
+export { ErrorPage } from "./error-page/ErrorPage";
