@@ -4,6 +4,16 @@ import { v4 as uuid } from "uuid";
 const addToWishlist = async (wishlist, setWishlist, item, toastDispatch) => {
   try {
     const encodedToken = localStorage.getItem("token");
+    if (!encodedToken) {
+      return toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-warning",
+          message: "you need to login or signup first",
+        },
+      });
+    }
     if (wishlist.find((element) => element.id === item.id)) {
       toastDispatch({
         type: "ADD_TOAST",

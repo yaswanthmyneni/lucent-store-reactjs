@@ -4,6 +4,16 @@ import { v4 as uuid } from "uuid";
 const addToCart = async (cartList, dispatch, item, toastDispatch) => {
   try {
     const encodedToken = localStorage.getItem("token");
+    if (!encodedToken) {
+      return toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-warning",
+          message: "you need to login or signup first",
+        },
+      });
+    }
     if (cartList.find((element) => element.id === item.id)) {
       toastDispatch({
         type: "ADD_TOAST",

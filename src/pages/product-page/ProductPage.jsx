@@ -18,9 +18,6 @@ import {
 } from "../../utility";
 
 const ProductPage = () => {
-  // getting encodedToken from localStorage
-  const encodedToken = localStorage.getItem("token");
-  
   // from toast context
   const { toastDispatch } = useToastContext();
 
@@ -75,12 +72,10 @@ const ProductPage = () => {
                 buttonPrimary="Add to cart"
                 buttonSecondary="Add to wishlist"
                 onClickFunc1={() => {
-                  encodedToken &&
-                    addToCart(cartList, cartDispatch, item, toastDispatch);
+                  addToCart(cartList, cartDispatch, item, toastDispatch);
                 }}
                 onClickFunc2={() => {
-                  encodedToken &&
-                    addToWishlist(wishlist, setWishlist, item, toastDispatch);
+                  addToWishlist(wishlist, setWishlist, item, toastDispatch);
                 }}
               />
             ))}
