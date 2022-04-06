@@ -1,6 +1,10 @@
 import "./cart-page.css";
 import { CardHorizontal, CartPrice } from "../../components";
-import { useCartContext, useWishlistContext } from "../../context";
+import {
+  useCartContext,
+  useToastContext,
+  useWishlistContext,
+} from "../../context";
 import { addToWishlist, removeFromCart } from "../../utility";
 
 const CartPage = () => {
@@ -12,6 +16,9 @@ const CartPage = () => {
     cartState: { cartList },
     cartDispatch,
   } = useCartContext();
+
+  // from toast context
+  const { toastDispatch } = useToastContext();
 
   // cart price section calculations
   const price = cartList.reduce(
@@ -37,10 +44,10 @@ const CartPage = () => {
                   key={item._id}
                   cardData={item}
                   onClickFunc1={() => {
-                    addToWishlist(wishlist, setWishlist, item);
+                    addToWishlist(wishlist, setWishlist, item, toastDispatch);
                   }}
                   onClickFunc2={() => {
-                    removeFromCart(cartDispatch, item);
+                    removeFromCart(cartDispatch, item, toastDispatch);
                   }}
                 />
               ))}

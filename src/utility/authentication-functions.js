@@ -1,16 +1,25 @@
 import { apiCall } from "./api-call";
+import { v4 as uuid } from "uuid";
 
 const submitSignInDetails = async (
   event,
   email,
   password,
   navigate,
-  encodedToken
+  encodedToken,
+  toastDispatch
 ) => {
   try {
     event.preventDefault();
     if (encodedToken) {
-      return console.log("already logged in");
+      return toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-error",
+          message: "already logged in",
+        },
+      });
     }
     const response = await apiCall("post", "/api/auth/login", null, {
       email: email,
@@ -19,9 +28,25 @@ const submitSignInDetails = async (
     if (response.status === 200) {
       localStorage.setItem("token", response.data.encodedToken);
       navigate("/products");
+      toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-success",
+          message: "logged in successfully",
+        },
+      });
     }
   } catch (error) {
     console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
   }
 };
 
@@ -32,12 +57,20 @@ const submitSignUpDetails = async (
   firstName,
   lastName,
   navigate,
-  encodedToken
+  encodedToken,
+  toastDispatch
 ) => {
   try {
     event.preventDefault();
     if (encodedToken) {
-      return console.log("already logged in");
+      return toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-error",
+          message: "already logged in",
+        },
+      });
     }
     const response = await apiCall("post", "/api/auth/signup", null, {
       firstName: firstName,
@@ -48,9 +81,25 @@ const submitSignUpDetails = async (
     if (response.status === 201) {
       localStorage.setItem("token", response.data.encodedToken);
       navigate("/products");
+      toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-success",
+          message: "signed up successfully",
+        },
+      });
     }
   } catch (error) {
     console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
   }
 };
 

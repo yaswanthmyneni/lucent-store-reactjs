@@ -8,4 +8,5 @@ export {
 } from "./wishlist-context";
 
 export { useCartContext, CartContextProvider } from "./cart-context";
+export { useToastContext, ToastProvider } from "./toast-context";
 export { useAuthContext, AuthContextProvider } from "./authentication-context";

@@ -3,6 +3,7 @@ import { CardVertical, AsideBar } from "../../components";
 import {
   useCartContext,
   useProductContext,
+  useToastContext,
   useWishlistContext,
 } from "../../context";
 import {
@@ -19,6 +20,9 @@ import {
 const ProductPage = () => {
   // getting encodedToken from localStorage
   const encodedToken = localStorage.getItem("token");
+  
+  // from toast context
+  const { toastDispatch } = useToastContext();
 
   // Product Context
   const {
@@ -71,10 +75,12 @@ const ProductPage = () => {
                 buttonPrimary="Add to cart"
                 buttonSecondary="Add to wishlist"
                 onClickFunc1={() => {
-                  encodedToken && addToCart(cartList, cartDispatch, item);
+                  encodedToken &&
+                    addToCart(cartList, cartDispatch, item, toastDispatch);
                 }}
                 onClickFunc2={() => {
-                  encodedToken && addToWishlist(wishlist, setWishlist, item);
+                  encodedToken &&
+                    addToWishlist(wishlist, setWishlist, item, toastDispatch);
                 }}
               />
             ))}

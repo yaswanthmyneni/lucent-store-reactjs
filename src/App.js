@@ -1,10 +1,11 @@
 import React from "react";
-import { Footer, Navigation, Routing } from "./components";
+import { Footer, Navigation, Routing, Toast } from "./components";
 
 const App = () => {
   return (
     <>
       <Navigation />
+      <Toast />
       <Routing />
       <Footer />
     </>

@@ -8,3 +8,4 @@ export { Button } from "./button/Button";
 export { CardHorizontal } from "./card-horizontal/CardHorizontal";
 export { CartPrice } from "./cart-price/CartPrice";
 export { Routing } from "./routes/Routing";
+export { Toast } from "./toast/Toast";

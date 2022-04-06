@@ -1,11 +1,18 @@
 import "./wishlist-page.css";
 import { CardVertical } from "../../components";
-import { useCartContext, useWishlistContext } from "../../context";
+import {
+  useCartContext,
+  useToastContext,
+  useWishlistContext,
+} from "../../context";
 import { addToCart, removeFromWishlist } from "../../utility";
 
 const WishlistPage = () => {
   // Wishlist Context
   const { wishlist, setWishlist } = useWishlistContext();
+
+  // from toast context
+  const { toastDispatch } = useToastContext();
 
   // Cart Context
   const {
@@ -26,10 +33,10 @@ const WishlistPage = () => {
                 buttonPrimary="Add to cart"
                 buttonSecondary="Remove from wishlist"
                 onClickFunc1={() => {
-                  addToCart(cartList, cartDispatch, item);
+                  addToCart(cartList, cartDispatch, item, toastDispatch);
                 }}
                 onClickFunc2={() => {
-                  removeFromWishlist(setWishlist, item);
+                  removeFromWishlist(setWishlist, item, toastDispatch);
                 }}
               />
             ))}
