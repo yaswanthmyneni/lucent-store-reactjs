@@ -1,7 +1,7 @@
 import "./signin-page.css";
 import { Button } from "../../components";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../../context";
+import { useAuthContext, useToastContext } from "../../context";
 import { submitSignInDetails } from "../../utility";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,9 @@ const SignInPage = () => {
     authState: { email, password },
     authDispatch,
   } = useAuthContext();
+
+  // from toast context
+  const { toastDispatch } = useToastContext();
 
   // from react-router-dom
   const navigate = useNavigate();
@@ -59,7 +62,14 @@ const SignInPage = () => {
               name="SignIn"
               className="btn-primary"
               onClickFunc={(event) =>
-                submitSignInDetails(event, email, password, navigate, encodedToken)
+                submitSignInDetails(
+                  event,
+                  email,
+                  password,
+                  navigate,
+                  encodedToken,
+                  toastDispatch
+                )
               }
             />
             <Button
@@ -71,7 +81,8 @@ const SignInPage = () => {
                   "adarshbalika@gmail.com",
                   "adarshbalika",
                   navigate,
-                  encodedToken
+                  encodedToken,
+                  toastDispatch
                 )
               }
             />

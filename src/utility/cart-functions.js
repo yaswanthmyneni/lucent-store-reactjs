@@ -1,10 +1,28 @@
 import { apiCall } from "./api-call";
+import { v4 as uuid } from "uuid";
 
-const addToCart = async (cartList, dispatch, item) => {
+const addToCart = async (cartList, dispatch, item, toastDispatch) => {
   try {
     const encodedToken = localStorage.getItem("token");
+    if (!encodedToken) {
+      return toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-warning",
+          message: "you need to login or signup first",
+        },
+      });
+    }
     if (cartList.find((element) => element.id === item.id)) {
-      console.log("already present");
+      toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-warning",
+          message: "already in the cart",
+        },
+      });
     } else {
       const response = await apiCall("post", "/api/user/cart", encodedToken, {
         product: item,
@@ -13,13 +31,29 @@ const addToCart = async (cartList, dispatch, item) => {
         type: "cartList",
         payload: response.data.cart,
       });
+      toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-success",
+          message: "added to cart successfully",
+        },
+      });
     }
   } catch (error) {
     console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
   }
 };
 
-const removeFromCart = async (dispatch, item) => {
+const removeFromCart = async (dispatch, item, toastDispatch) => {
   try {
     const encodedToken = localStorage.getItem("token");
     const response = await apiCall(
@@ -31,12 +65,28 @@ const removeFromCart = async (dispatch, item) => {
       type: "cartList",
       payload: response.data.cart,
     });
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-success",
+        message: "removed from cart successfully",
+      },
+    });
   } catch (error) {
     console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
   }
 };
 
-const incrementQytInCartList = async (dispatch, id) => {
+const incrementQytInCartList = async (dispatch, id, toastDispatch) => {
   try {
     const increment = {
       action: {
@@ -56,10 +106,18 @@ const incrementQytInCartList = async (dispatch, id) => {
     });
   } catch (error) {
     console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
   }
 };
 
-const decrementQytInCartList = async (dispatch, id, qty) => {
+const decrementQytInCartList = async (dispatch, id, qty, toastDispatch) => {
   try {
     const decrement = {
       action: {
@@ -81,6 +139,14 @@ const decrementQytInCartList = async (dispatch, id, qty) => {
     }
   } catch (error) {
     console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
   }
 };
 

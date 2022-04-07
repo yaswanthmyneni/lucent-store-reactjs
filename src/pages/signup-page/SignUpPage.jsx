@@ -1,11 +1,14 @@
 import "./signup-page.css";
 import { Button } from "../../components";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../../context";
+import { useAuthContext, useToastContext } from "../../context";
 import { useNavigate } from "react-router-dom";
 import { submitSignUpDetails } from "../../utility";
 
 const SignUpPage = () => {
+  // from local storage
+  const encodedToken = localStorage.getItem("token");
+
   // from react-router-dom
   const navigate = useNavigate();
 
@@ -14,6 +17,9 @@ const SignUpPage = () => {
     authState: { email, password, confirmPassword, firstName, lastName },
     authDispatch,
   } = useAuthContext();
+
+  // from toast context
+  const { toastDispatch } = useToastContext();
 
   return (
     <>
@@ -108,7 +114,9 @@ const SignUpPage = () => {
                     password,
                     firstName,
                     lastName,
-                    navigate
+                    navigate,
+                    encodedToken,
+                    toastDispatch
                   )
                 }
               />
