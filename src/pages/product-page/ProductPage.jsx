@@ -16,6 +16,7 @@ import {
   addToCart,
   addToWishlist,
 } from "../../utility";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProductPage = () => {
   // from toast context
@@ -42,6 +43,10 @@ const ProductPage = () => {
     cartState: { cartList },
     cartDispatch,
   } = useCartContext();
+
+  // from react-router-dom
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Filter Function
   const partiallyFilteredList = filterFunction(
@@ -72,10 +77,24 @@ const ProductPage = () => {
                 buttonPrimary="Add to cart"
                 buttonSecondary="Add to wishlist"
                 onClickFunc1={() => {
-                  addToCart(cartList, cartDispatch, item, toastDispatch);
+                  addToCart(
+                    cartList,
+                    cartDispatch,
+                    item,
+                    toastDispatch,
+                    navigate,
+                    location
+                  );
                 }}
                 onClickFunc2={() => {
-                  addToWishlist(wishlist, setWishlist, item, toastDispatch);
+                  addToWishlist(
+                    wishlist,
+                    setWishlist,
+                    item,
+                    toastDispatch,
+                    navigate,
+                    location
+                  );
                 }}
               />
             ))}

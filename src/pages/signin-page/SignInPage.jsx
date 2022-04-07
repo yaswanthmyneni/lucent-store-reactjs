@@ -1,6 +1,6 @@
 import "./signin-page.css";
 import { Button } from "../../components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuthContext, useToastContext } from "../../context";
 import { submitSignInDetails } from "../../utility";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,7 @@ const SignInPage = () => {
 
   // from react-router-dom
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <>
@@ -67,6 +68,7 @@ const SignInPage = () => {
                   email,
                   password,
                   navigate,
+                  location,
                   encodedToken,
                   toastDispatch
                 )
@@ -81,17 +83,21 @@ const SignInPage = () => {
                   "adarshbalika@gmail.com",
                   "adarshbalika",
                   navigate,
+                  location,
                   encodedToken,
                   toastDispatch
                 )
               }
             />
           </form>
-          <Link to="/signup" className="link">
-            <p className="text-center text-lg cursor">
-              Create New Account <i className="fa-solid fa-angle-right"></i>
-            </p>{" "}
-          </Link>
+          <p
+            className="text-center text-lg cursor"
+            onClick={() =>
+              navigate("/signup", { state: { from: { pathname: "/" } } })
+            }
+          >
+            Create New Account <i className="fa-solid fa-angle-right"></i>
+          </p>
         </div>
       </main>
     </>

@@ -27,7 +27,7 @@ const Navigation = () => {
   const encodedToken = localStorage.getItem("token");
 
   // from react-router-dom
-  const path = useLocation();
+  const location = useLocation();
 
   const [logout, setLogout] = useState(false);
 
@@ -44,12 +44,16 @@ const Navigation = () => {
           <h1 className="navbar-m-lr-1">LUCENT STORE</h1>
         </NavLink>
         {!encodedToken &&
-          (path.pathname === "/products" || path.pathname === "/") && (
-            <NavLink className="navbar-m-left-auto navbar" to="/signin">
+          (location.pathname === "/products" || location.pathname === "/") && (
+            <NavLink
+              className="navbar-m-left-auto navbar"
+              to="/signin"
+              state={{ from: location }}
+            >
               <h5 className="navbar-m-lr-1">LOGIN</h5>
             </NavLink>
           )}
-        {encodedToken && path.pathname !== "/logout" && (
+        {encodedToken && location.pathname !== "/logout" && (
           <NavLink
             className="navbar-m-left-auto navbar"
             to="/logout"
@@ -61,7 +65,7 @@ const Navigation = () => {
             <h5 className="navbar-m-lr-1">LOGOUT</h5>
           </NavLink>
         )}
-        {path.pathname === "/products" && (
+        {location.pathname === "/products" && (
           <div className="search-bar-border navbar-m-lr-1">
             <input
               className="input search-bar-input"
@@ -77,19 +81,19 @@ const Navigation = () => {
             <i className="fas fa-search"></i>
           </div>
         )}
-        {path.pathname !== "/products" && path.pathname !== "/logout" && (
+        {location.pathname !== "/products" && location.pathname !== "/logout" && (
           <NavLink className="navbar navbar-m-lr-1" to="/products">
             <i className="fa-solid fa-store"></i>
           </NavLink>
         )}
-        {encodedToken && (
+        {(location.pathname === "/" || location.pathname === "/products") && (
           <NavLink to="/wishlist">
             <IconWithBadge count={wishlist.length}>
               <i className="fas fa-heart icon-badge"></i>
             </IconWithBadge>
           </NavLink>
         )}
-        {encodedToken && (
+        {(location.pathname === "/" || location.pathname === "/products") && (
           <NavLink to="/cart">
             <IconWithBadge className="m-r-2rem" count={cartList.length}>
               <i className="fas fa-shopping-cart icon-badge"></i>
