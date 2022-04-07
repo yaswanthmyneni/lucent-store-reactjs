@@ -17,7 +17,7 @@ const submitSignInDetails = async (
         type: "ADD_TOAST",
         payload: {
           id: uuid(),
-          className: "toast-error",
+          className: "toast-warning",
           message: "already logged in",
         },
       });
@@ -69,7 +69,7 @@ const submitSignUpDetails = async (
         type: "ADD_TOAST",
         payload: {
           id: uuid(),
-          className: "toast-error",
+          className: "toast-warning",
           message: "already logged in",
         },
       });

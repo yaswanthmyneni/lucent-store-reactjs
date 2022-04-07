@@ -86,14 +86,18 @@ const Navigation = () => {
             <i className="fa-solid fa-store"></i>
           </NavLink>
         )}
-        {(location.pathname === "/" || location.pathname === "/products") && (
+        {(location.pathname === "/" ||
+          location.pathname === "/products" ||
+          location.pathname === "/cart") && (
           <NavLink to="/wishlist">
             <IconWithBadge count={wishlist.length}>
               <i className="fas fa-heart icon-badge"></i>
             </IconWithBadge>
           </NavLink>
         )}
-        {(location.pathname === "/" || location.pathname === "/products") && (
+        {(location.pathname === "/" ||
+          location.pathname === "/products" ||
+          location.pathname === "/wishlist") && (
           <NavLink to="/cart">
             <IconWithBadge className="m-r-2rem" count={cartList.length}>
               <i className="fas fa-shopping-cart icon-badge"></i>
