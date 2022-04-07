@@ -45,6 +45,7 @@ const CartPage = () => {
                   cardData={item}
                   onClickFunc1={() => {
                     addToWishlist(wishlist, setWishlist, item, toastDispatch);
+                    removeFromCart(cartDispatch, item, toastDispatch);
                   }}
                   onClickFunc2={() => {
                     removeFromCart(cartDispatch, item, toastDispatch);
