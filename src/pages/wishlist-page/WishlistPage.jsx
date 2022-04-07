@@ -23,7 +23,7 @@ const WishlistPage = () => {
   return (
     <>
       <main className="wishlist-page-main">
-      <h2 className="text-center">MY WISHLIST</h2>
+        <h2 className="text-center">MY WISHLIST</h2>
         <div className="wishlist-container">
           {wishlist.length > 0 &&
             wishlist.map((item) => (
@@ -34,6 +34,7 @@ const WishlistPage = () => {
                 buttonSecondary="Remove from wishlist"
                 onClickFunc1={() => {
                   addToCart(cartList, cartDispatch, item, toastDispatch);
+                  removeFromWishlist(setWishlist, item, toastDispatch);
                 }}
                 onClickFunc2={() => {
                   removeFromWishlist(setWishlist, item, toastDispatch);
