@@ -9,3 +9,4 @@ export { CardHorizontal } from "./card-horizontal/CardHorizontal";
 export { CartPrice } from "./cart-price/CartPrice";
 export { Routing } from "./routes/Routing";
 export { Toast } from "./toast/Toast";
+export { RequireAuth } from "./require-auth/RequireAuth";

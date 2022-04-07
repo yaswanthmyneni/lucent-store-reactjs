@@ -23,7 +23,7 @@ const WishlistPage = () => {
   return (
     <>
       <main className="wishlist-page-main">
-        <h3>All Products</h3>
+      <h2 className="text-center">MY WISHLIST</h2>
         <div className="wishlist-container">
           {wishlist.length > 0 &&
             wishlist.map((item) => (
