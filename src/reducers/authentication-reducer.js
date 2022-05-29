@@ -12,6 +12,8 @@ const authReducer = (authState, action) => {
       return { ...authState, firstName: action.payload };
     case "LAST_NAME":
       return { ...authState, lastName: action.payload };
+    case "USER":
+      return { ...authState, user: action.payload };
     default:
       return authState;
   }

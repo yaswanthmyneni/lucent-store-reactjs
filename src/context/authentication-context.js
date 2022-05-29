@@ -12,6 +12,7 @@ const AuthContextProvider = ({ children }) => {
     password: '',
     confirmPassword: '',
     token: null,
+    user: {},
   });
 
   const value = { authState, authDispatch };
