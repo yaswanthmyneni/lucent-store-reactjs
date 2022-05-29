@@ -7,3 +7,5 @@ export { SignInPage } from "./signin-page/SignInPage";
 export { SignUpPage } from "./signup-page/SignUpPage";
 export { LogoutPage } from "./logout-page/LogoutPage";
 export { ErrorPage } from "./error-page/ErrorPage";
+export { OrderSuccessfulPage } from "./order-successful-page/OrderSuccessfulPage";
+export { OrdersPage } from "./orders-page/OrdersPage";

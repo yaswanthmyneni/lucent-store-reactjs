@@ -1,0 +1,38 @@
+.orders-image-container {
+    width: 5rem;
+    height: 5rem;
+}
+
+.orders-product-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 18rem;
+    padding:4px;
+    border: 1px solid var(--color-silver);
+}
+
+.orders-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.orders-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 1rem;
+}
+
+.order-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 2px solid var(--color-silver);
+    padding: 8px 1rem;
+    width: fit-content;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
