@@ -9,6 +9,7 @@ export {
 export {
   addToCart,
   removeFromCart,
+  deleteAllFromCart,
   incrementQytInCartList,
   decrementQytInCartList,
 } from "./cart-functions";
@@ -18,3 +19,4 @@ export {
   submitSignUpDetails,
 } from "./authentication-functions";
 export { apiCall } from "./api-call";
+export { proceedToPay } from "./payment-functions.js";
