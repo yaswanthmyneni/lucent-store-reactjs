@@ -7,7 +7,8 @@ import {
   CartContextProvider,
   ProductContextProvider,
   WishlistContextProvider,
-  ToastProvider
+  ToastProvider,
+  CheckoutProvider,
 } from "./context";
 import { makeServer } from "./server";
 
@@ -18,15 +19,17 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ToastProvider>
-        <AuthContextProvider>
-          <CartContextProvider>
-            <WishlistContextProvider>
-              <ProductContextProvider>
-                <App />
-              </ProductContextProvider>
-            </WishlistContextProvider>
-          </CartContextProvider>
-        </AuthContextProvider>
+          <CheckoutProvider>
+            <AuthContextProvider>
+              <CartContextProvider>
+                <WishlistContextProvider>
+                  <ProductContextProvider>
+                    <App />
+                  </ProductContextProvider>
+                </WishlistContextProvider>
+              </CartContextProvider>
+            </AuthContextProvider>
+          </CheckoutProvider>
       </ToastProvider>
     </BrowserRouter>
   </React.StrictMode>,

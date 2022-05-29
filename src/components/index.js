@@ -10,3 +10,5 @@ export { CartPrice } from "./cart-price/CartPrice";
 export { Routing } from "./routes/Routing";
 export { Toast } from "./toast/Toast";
 export { RequireAuth } from "./require-auth/RequireAuth";
+export { AddressModal } from "./address-modal/AddressModal";
+export { AddressCard } from "./address-card/AddressCard";
