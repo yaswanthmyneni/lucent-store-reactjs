@@ -35,6 +35,7 @@
   box-shadow: 1px 1px 1px 0 var(--color-silver);
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .price-flex {
