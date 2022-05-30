@@ -1,6 +1,6 @@
 import "./signin-page.css";
 import { Button } from "../../components";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useAuthContext, useToastContext } from "../../context";
 import { submitSignInDetails } from "../../utility";
 import { useNavigate } from "react-router-dom";
@@ -50,15 +50,10 @@ const SignInPage = () => {
                 authDispatch({ type: "PASSWORD", payload: e.target.value })
               }
             />
-            <div className="m-top-8px sign-in-flex">
-              <label className="cursor" htmlFor="remember-me">
-                <input className="cursor" type="checkbox" id="remember-me" />{" "}
-                Remember me
-              </label>
-              <Link to="/forgot-password" className="cursor">
-                forgot your password?
-              </Link>
-            </div>
+            <label className="cursor" htmlFor="remember-me">
+              <input className="cursor" type="checkbox" id="remember-me" />{" "}
+              Remember me
+            </label>
             <Button
               name="SignIn"
               className="btn-primary"
