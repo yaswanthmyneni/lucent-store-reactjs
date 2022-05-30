@@ -14,7 +14,7 @@ const CartPrice = ({ price, discountPrice, totalPrice, onClickHandler }) => {
       </div>
       <div className="price-flex">
         <span>Delivery charges</span>
-        <span>$10</span>
+        <span>FREE</span>
       </div>
       <div className="price-flex">
         <h4>TOTAL PRICE</h4>

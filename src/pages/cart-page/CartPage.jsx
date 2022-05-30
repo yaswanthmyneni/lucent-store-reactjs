@@ -31,7 +31,9 @@ const CartPage = () => {
   );
   const discountPrice = cartList.reduce(
     (acc, item) =>
-      acc + (Number(item.originalPrice) - Number(item.discountPrice)),
+      acc +
+      Number(item.qty) *
+        (Number(item.originalPrice) - Number(item.discountPrice)),
     0
   );
   const totalPrice = price - discountPrice;
