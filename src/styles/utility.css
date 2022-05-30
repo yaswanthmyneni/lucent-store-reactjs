@@ -28,3 +28,7 @@ body {
 .color-danger {
   color: var(--color-red);
 }
+
+.m-0 {
+  margin: 0;
+}

@@ -7,6 +7,9 @@ import {
   SignUpPage,
   LogoutPage,
   ErrorPage,
+  CheckoutPage,
+  OrderSuccessfulPage,
+  OrdersPage,
 } from "../../pages";
 import { Route, Routes } from "react-router-dom";
 import { RequireAuth } from "../require-auth/RequireAuth";
@@ -34,6 +37,30 @@ const Routing = () => {
         element={
           <RequireAuth>
             <CartPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <RequireAuth>
+            <CheckoutPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/order-successful"
+        element={
+          <RequireAuth>
+            <OrderSuccessfulPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/orders"
+        element={
+          <RequireAuth>
+            <OrdersPage />
           </RequireAuth>
         }
       />

@@ -90,6 +90,37 @@ const removeFromCart = async (dispatch, item, toastDispatch) => {
   }
 };
 
+const deleteAllFromCart = async (dispatch, toastDispatch) => {
+  try {
+    const encodedToken = localStorage.getItem("token");
+    const response = await apiCall("DELETE", `/api/user/cart/`, encodedToken);
+    if (response.status === 200) {
+      dispatch({
+        type: "cartList",
+        payload: response.data.cart,
+      });
+      toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-success",
+          message: "removed all products from cart",
+        },
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    toastDispatch({
+      type: "ADD_TOAST",
+      payload: {
+        id: uuid(),
+        className: "toast-error",
+        message: "error! check console",
+      },
+    });
+  }
+};
+
 const incrementQytInCartList = async (dispatch, id, toastDispatch) => {
   try {
     const increment = {
@@ -157,6 +188,7 @@ const decrementQytInCartList = async (dispatch, id, qty, toastDispatch) => {
 export {
   addToCart,
   removeFromCart,
+  deleteAllFromCart,
   incrementQytInCartList,
   decrementQytInCartList,
 };

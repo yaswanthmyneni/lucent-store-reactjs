@@ -85,7 +85,8 @@ const SignInPage = () => {
                   navigate,
                   location,
                   encodedToken,
-                  toastDispatch
+                  toastDispatch,
+                  authDispatch
                 )
               }
             />

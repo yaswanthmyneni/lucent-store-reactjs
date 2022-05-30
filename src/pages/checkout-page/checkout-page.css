@@ -1,12 +1,9 @@
-@import "../../styles/utility.css";
-
-/* Main Section */
-.cart-main {
+.checkout-main {
   padding-bottom: 6.8rem;
   margin-top: 1rem;
 }
 
-.cart-page-wrapper {
+.checkout-page-wrapper {
   margin: 1.5rem 8rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -14,77 +11,87 @@
   gap: 1rem;
 }
 
-/* Product Section */
-.cart-product {
+.checkout-btn {
+  width: fit-content;
+}
+
+.address-container {
   grid-area: product;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-/* Price Section */
-.price {
-  grid-area: price;
-}
-
-.price-container {
-  width: 22rem;
-  padding: 1.5rem;
-  border: 1px solid var(--color-silver);
-  border-radius: 0.625rem;
-  box-shadow: 1px 1px 1px 0 var(--color-silver);
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
 }
 
-.price-flex {
+.order-address-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 1rem;
+  margin: 0 auto;
+}
+
+.order-address-card p {
+  margin: 0;
+}
+
+.order-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.color-green {
-  color: var(--color-green-600);
+.order-flex p {
+  margin: 4px 0;
+}
+
+.border-tb {
+  border-top: 1px solid var(--color-black);
+  border-bottom: 1px solid var(--color-black);
+}
+
+.border-top {
+  border-top: 1px solid var(--color-silver);
+}
+
+.mb-8px {
+  margin-bottom: 8px;
+}
+
+.mt-0 {
+  margin-top: 0;
 }
 
 /* Responsiveness */
 @media screen and (max-width: 1280px) {
-  .cart-page-wrapper {
+  .checkout-page-wrapper {
     margin: 1.5rem 6rem;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .cart-page-wrapper {
+  .checkout-page-wrapper {
     margin: 1.5rem 2rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .cart-page-wrapper {
+  .checkout-page-wrapper {
     margin: 1.5rem 3rem;
     grid-template-columns: 1fr;
     grid-template-areas: "product" "price";
     gap: 2rem;
   }
-
-  .price-container {
-    margin: auto;
-  }
 }
 
 @media screen and (max-width: 640px) {
-  .cart-page-wrapper {
+  .checkout-page-wrapper {
     margin: 1.5rem 1rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .cart-page-wrapper {
+  .checkout-page-wrapper {
     margin: 1.5rem 10px;
-  }
-  .price-container {
-    width: 18rem;
   }
 }

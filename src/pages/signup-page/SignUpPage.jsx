@@ -118,7 +118,8 @@ const SignUpPage = () => {
                     navigate,
                     location,
                     encodedToken,
-                    toastDispatch
+                    toastDispatch,
+                    authDispatch
                   )
                 }
               />

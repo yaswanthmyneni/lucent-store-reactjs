@@ -1,6 +1,6 @@
 import { Button } from "../index";
 
-const CartPrice = ({ price, discountPrice, totalPrice }) => {
+const CartPrice = ({ price, discountPrice, totalPrice, onClickHandler }) => {
   return (
     <div className="price-container">
       <h4>PRICE DETAILS</h4>
@@ -20,8 +20,16 @@ const CartPrice = ({ price, discountPrice, totalPrice }) => {
         <h4>TOTAL PRICE</h4>
         <h4>${totalPrice}</h4>
       </div>
-      <p>You will save <span className="text-xl color-green">$ {discountPrice}</span> in this order</p>
-      <Button className="btn-primary" name="Place Order" />
+      <p>
+        You will save
+        <span className="text-xl color-green">$ {discountPrice}</span> in this
+        order
+      </p>
+      <Button
+        className="btn-primary"
+        onClickFunc={() => onClickHandler()}
+        name="Place Order"
+      />
     </div>
   );
 };

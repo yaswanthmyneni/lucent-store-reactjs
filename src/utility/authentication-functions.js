@@ -8,7 +8,8 @@ const submitSignInDetails = async (
   navigate,
   location,
   encodedToken,
-  toastDispatch
+  toastDispatch,
+  authDispatch
 ) => {
   try {
     event.preventDefault();
@@ -28,6 +29,7 @@ const submitSignInDetails = async (
     });
     if (response.status === 200) {
       localStorage.setItem("token", response.data.encodedToken);
+      authDispatch({type:'USER', payload: response.data.foundUser});
       navigate(location?.state?.from?.pathname);
       toastDispatch({
         type: "ADD_TOAST",
@@ -60,7 +62,8 @@ const submitSignUpDetails = async (
   navigate,
   location,
   encodedToken,
-  toastDispatch
+  toastDispatch,
+  authDispatch
 ) => {
   try {
     event.preventDefault();
@@ -82,6 +85,7 @@ const submitSignUpDetails = async (
     });
     if (response.status === 201) {
       localStorage.setItem("token", response.data.encodedToken);
+      authDispatch({type:'USER', payload: response.data.createdUser});
       navigate(location?.state?.from?.pathname);
       toastDispatch({
         type: "ADD_TOAST",

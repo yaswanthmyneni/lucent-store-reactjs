@@ -6,6 +6,7 @@ import {
   useWishlistContext,
 } from "../../context";
 import { addToWishlist, removeFromCart } from "../../utility";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   // wishlist Context
@@ -19,6 +20,8 @@ const CartPage = () => {
 
   // from toast context
   const { toastDispatch } = useToastContext();
+
+  const navigate = useNavigate();
 
   // cart price section calculations
   const price = cartList.reduce(
@@ -60,6 +63,7 @@ const CartPage = () => {
                 price={price}
                 discountPrice={discountPrice}
                 totalPrice={totalPrice}
+                onClickHandler={() => navigate("/checkout")}
               />
             )}
           </section>
