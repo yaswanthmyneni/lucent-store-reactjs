@@ -27,7 +27,7 @@ const addToCart = async (
       });
       if (response.status === 201) {
         dispatch({
-          type: "cartList",
+          type: "SET_CART_LIST",
           payload: response.data.cart,
         });
         toastDispatch({
@@ -65,7 +65,7 @@ const removeFromCart = async (dispatch, item, toastDispatch) => {
     );
     if (response.status === 200) {
       dispatch({
-        type: "cartList",
+        type: "SET_CART_LIST",
         payload: response.data.cart,
       });
       toastDispatch({
@@ -96,7 +96,7 @@ const deleteAllFromCart = async (dispatch, toastDispatch) => {
     const response = await apiCall("DELETE", `/api/user/cart/`, encodedToken);
     if (response.status === 200) {
       dispatch({
-        type: "cartList",
+        type: "SET_CART_LIST",
         payload: response.data.cart,
       });
       toastDispatch({
@@ -136,7 +136,7 @@ const incrementQytInCartList = async (dispatch, id, toastDispatch) => {
       increment
     );
     dispatch({
-      type: "cartList",
+      type: "SET_CART_LIST",
       payload: response.data.cart,
     });
   } catch (error) {
@@ -168,7 +168,7 @@ const decrementQytInCartList = async (dispatch, id, qty, toastDispatch) => {
         decrement
       );
       dispatch({
-        type: "cartList",
+        type: "SET_CART_LIST",
         payload: response.data.cart,
       });
     }
