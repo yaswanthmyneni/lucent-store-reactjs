@@ -29,14 +29,6 @@ const Navigation = () => {
   // from react-router-dom
   const location = useLocation();
 
-  const [logout, setLogout] = useState(false);
-
-  useEffect(() => {
-    if (logout) {
-      window.location.reload();
-    }
-  }, [logout]);
-
   return (
     <header className="header">
       <div className="navbar-container">
@@ -57,10 +49,7 @@ const Navigation = () => {
           <NavLink
             className="navbar-m-left-auto navbar"
             to="/logout"
-            onClick={() => {
-              setLogout(true);
-              localStorage.clear();
-            }}
+            onClick={() => localStorage.clear()}
           >
             <h5 className="navbar-m-lr-1">LOGOUT</h5>
           </NavLink>
