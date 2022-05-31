@@ -100,9 +100,9 @@ const SignUpPage = () => {
               )}
               <label
                 htmlFor="terms-and-conditions"
-                className="signup-margin-top"
+                className="signup-margin-top cursor"
               >
-                <input type="checkbox" id="terms-and-conditions" /> I accept all
+                <input type="checkbox" className="cursor" id="terms-and-conditions" /> I accept all
                 Terms & Conditions
               </label>
               <Button

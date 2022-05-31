@@ -6,7 +6,6 @@ import {
   useCartContext,
   useProductContext,
 } from "../../context";
-import { useEffect, useState } from "react";
 
 const Navigation = () => {
   // product page context
@@ -28,15 +27,7 @@ const Navigation = () => {
 
   // from react-router-dom
   const location = useLocation();
-
-  const [logout, setLogout] = useState(false);
-
-  useEffect(() => {
-    if (logout) {
-      window.location.reload();
-    }
-  }, [logout]);
-
+  
   return (
     <header className="header">
       <div className="navbar-container">
@@ -57,10 +48,7 @@ const Navigation = () => {
           <NavLink
             className="navbar-m-left-auto navbar"
             to="/logout"
-            onClick={() => {
-              setLogout(true);
-              localStorage.clear();
-            }}
+            onClick={() => localStorage.clear()}
           >
             <h5 className="navbar-m-lr-1">LOGOUT</h5>
           </NavLink>
@@ -86,24 +74,34 @@ const Navigation = () => {
             <i className="fa-solid fa-store"></i>
           </NavLink>
         )}
-        {(location.pathname === "/" ||
-          location.pathname === "/products" ||
-          location.pathname === "/cart") && (
-          <NavLink to="/wishlist">
-            <IconWithBadge count={wishlist.length}>
-              <i className="fas fa-heart icon-badge"></i>
-            </IconWithBadge>
-          </NavLink>
-        )}
-        {(location.pathname === "/" ||
-          location.pathname === "/products" ||
-          location.pathname === "/wishlist") && (
-          <NavLink to="/cart">
-            <IconWithBadge className="m-r-2rem" count={cartList.length}>
-              <i className="fas fa-shopping-cart icon-badge"></i>
-            </IconWithBadge>
-          </NavLink>
-        )}
+        {location.pathname !== "/logout" &&
+          location.pathname !== "/wishlist" &&
+          location.pathname !== "/signin" &&
+          location.pathname !== "/signup" && (
+            <NavLink to="/wishlist">
+              <IconWithBadge count={wishlist.length}>
+                <i className="fas fa-heart icon-badge"></i>
+              </IconWithBadge>
+            </NavLink>
+          )}
+        {location.pathname !== "/logout" &&
+          location.pathname !== "/cart" &&
+          location.pathname !== "/signin" &&
+          location.pathname !== "/signup" && (
+            <NavLink to="/cart">
+              <IconWithBadge count={cartList.length}>
+                <i className="fas fa-shopping-cart icon-badge"></i>
+              </IconWithBadge>
+            </NavLink>
+          )}
+        {location.pathname !== "/logout" &&
+          location.pathname !== "/orders" &&
+          location.pathname !== "/signin" &&
+          location.pathname !== "/signup" && (
+            <NavLink className="navbar navbar-m-lr-1" to="/orders">
+              <i className="fa-solid fa-box"></i>
+            </NavLink>
+          )}
       </div>
     </header>
   );

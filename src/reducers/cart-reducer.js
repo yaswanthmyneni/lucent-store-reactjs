@@ -1,6 +1,6 @@
 const cartReducer = (cartState, action) => {
   switch (action.type) {
-    case "cartList":
+    case "SET_CART_LIST":
       return { ...cartState, cartList: action.payload };
     default:
       return cartState;

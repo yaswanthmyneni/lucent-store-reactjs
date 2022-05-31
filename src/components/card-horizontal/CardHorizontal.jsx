@@ -27,16 +27,19 @@ const CardHorizontal = ({ cardData, onClickFunc1, onClickFunc2 }) => {
         <h4 className="margin-tb-4px"> {cardName}</h4>
         <p className="margin-tb-4px">{brandName}</p>
         <div className="card-horizontal-flex">
-          <Button
-            name="-"
-            className="btn-primary"
-            onClickFunc={() => decrementQytInCartList(cartDispatch, _id, qty)}
+          <input
+            type="button"
+            value="-"
+            disabled={qty <= 1}
+            className="btn-primary cursor"
+            onClick={() => decrementQytInCartList(cartDispatch, _id, qty)}
           />
           <h4>{qty}</h4>
-          <Button
-            name="+"
-            className="btn-primary"
-            onClickFunc={() => incrementQytInCartList(cartDispatch, _id)}
+          <input
+            type="button"
+            value="+"
+            className="btn-primary cursor"
+            onClick={() => incrementQytInCartList(cartDispatch, _id)}
           />
         </div>
         <div className="card-align-items card-margin-bottom">
