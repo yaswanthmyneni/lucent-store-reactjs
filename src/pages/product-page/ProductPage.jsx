@@ -33,6 +33,7 @@ const ProductPage = () => {
       range,
       searchParam,
     },
+    productPageDispatch,
   } = useProductContext();
 
   // Wishlist Context
@@ -64,6 +65,20 @@ const ProductPage = () => {
 
   return (
     <>
+      <div className="search-bar-container">
+        <i className="fas fa-search search-icon"></i>
+        <input
+          className="input search-bar"
+          type="text"
+          value={searchParam}
+          onChange={(e) => {
+            productPageDispatch({
+              type: "SEARCH",
+              payload: e.target.value,
+            });
+          }}
+        />
+      </div>
       <div className="product-page-wrapper">
         <AsideBar />
         <main className="product-page-main">

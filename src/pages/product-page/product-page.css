@@ -27,6 +27,32 @@
   margin-bottom: 1rem;
 }
 
+.search-bar-container {
+  border: 2px solid var(--color-silver);
+  padding: 1px 8px;
+  border-radius: 8px;
+  color: var(--color-white);
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  display: none;
+}
+
+.search-bar-container i {
+  cursor: pointer;
+}
+
+.search-bar {
+  width: 80%;
+  border: none;
+  outline: 0;
+  font-size: 1.3rem;
+}
+
+.search-icon {
+  color: var(--color-silver);
+}
+
 /* Responsiveness */
 @media screen and (max-width: 768px) {
   .product-page-wrapper {
@@ -34,5 +60,12 @@
     grid-template-areas:
       "aside"
       "main";
+    margin-top: 8px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .search-bar-container {
+    display: block;
   }
 }

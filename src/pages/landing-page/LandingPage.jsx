@@ -18,7 +18,7 @@ const LandingPage = () => {
     } catch (error) {
       console.error(error);
     }
-  });
+  },[]);
 
   return (
     <>

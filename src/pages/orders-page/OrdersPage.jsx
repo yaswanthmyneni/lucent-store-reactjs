@@ -12,7 +12,7 @@ const OrdersPage = () => {
   const navigate = useNavigate();
 
   return (
-    <main>
+    <main className='orders-main'>
       {orderDetails.length === 0 ? (
         <div className="text-center mt-6rem">
           <h3>No orders found!</h3>

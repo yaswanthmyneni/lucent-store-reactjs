@@ -12,3 +12,13 @@
 .toast {
   width: 38ch;
 }
+
+@media screen and (max-width: 640px) {
+  .toast-container {
+    right: 1.5rem;
+  }
+
+  .toast {
+    width: 30ch;
+  }
+}
