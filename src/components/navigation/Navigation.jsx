@@ -30,7 +30,7 @@ const Navigation = () => {
 
   // from react-router-dom
   const location = useLocation();
-
+console.log(location.pathname);
   return (
     <>
       <header className="header">
@@ -54,14 +54,19 @@ const Navigation = () => {
               <i className="fas fa-search"></i>
             </div>
           )}
-          <div className="navbar menu-icon navbar-m-lr-1">
-            {!isMenu && (
-              <i class="fa-solid fa-bars" onClick={() => setIsMenu(true)}></i>
-            )}
-            {isMenu && (
-              <i class="fa-solid fa-xmark" onClick={() => setIsMenu(false)}></i>
-            )}
-          </div>
+          {location.pathname !== "/logout" && (
+            <div className="navbar menu-icon navbar-m-lr-1">
+              {!isMenu && (
+                <i class="fa-solid fa-bars" onClick={() => setIsMenu(true)}></i>
+              )}
+              {isMenu && (
+                <i
+                  class="fa-solid fa-xmark"
+                  onClick={() => setIsMenu(false)}
+                ></i>
+              )}
+            </div>
+          )}
           {!encodedToken &&
             (location.pathname === "/products" ||
               location.pathname === "/") && (
@@ -194,23 +199,23 @@ const Navigation = () => {
                 location.pathname === "/") && (
                 <NavLink
                   onClick={() => setIsMenu(false)}
-                  className="menu-item text-xl"
+                  className="menu-item text-2xl"
                   to="/signin"
                   state={{ from: location }}
                 >
-                  LOGIN
+                  Login
                 </NavLink>
               )}
             {encodedToken && location.pathname !== "/logout" && (
               <NavLink
-                className="menu-item text-xl"
+                className="menu-item text-2xl"
                 to="/logout"
                 onClick={() => {
                   localStorage.clear();
                   setIsMenu(false);
                 }}
               >
-                LOGOUT
+                Logout
               </NavLink>
             )}
           </div>
