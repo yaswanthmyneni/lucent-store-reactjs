@@ -49,7 +49,6 @@ const WishlistPage = () => {
                   buttonSecondary="Remove from wishlist"
                   onClickFunc1={() => {
                     addToCart(cartList, cartDispatch, item, toastDispatch);
-                    removeFromWishlist(setWishlist, item, toastDispatch);
                   }}
                   onClickFunc2={() => {
                     removeFromWishlist(setWishlist, item, toastDispatch);
