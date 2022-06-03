@@ -18,6 +18,12 @@ padding-bottom: 8rem;
 }
 
 /* Responsiveness */
+@media screen and (max-width: 640px) {
+  .sign-in > .input-container {
+    width: 28rem;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .sign-in > .input-container {
     width: 20rem;

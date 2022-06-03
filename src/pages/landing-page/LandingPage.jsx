@@ -3,9 +3,18 @@ import "./landing-page.css";
 import cardImage from "../../assets/images/hero.jpg";
 import { CategoryCard } from "../../components";
 import { apiCall } from "../../utility";
+import { v4 as uuid } from "uuid";
+import { useToastContext } from "../../context";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   const [categoryList, setCategoryList] = useState([]);
+
+  // from toast context
+  const { toastDispatch } = useToastContext();
+
+  // from react-router-dom
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -17,8 +26,16 @@ const LandingPage = () => {
       })();
     } catch (error) {
       console.error(error);
+      toastDispatch({
+        type: "ADD_TOAST",
+        payload: {
+          id: uuid(),
+          className: "toast-error",
+          message: "error! check console",
+        },
+      });
     }
-  });
+  }, [toastDispatch]);
 
   return (
     <>
@@ -32,9 +49,12 @@ const LandingPage = () => {
                 Top deals on yoga mats, cotton shirts and pants. Find your best
                 size at affordable price. No cost EMI. Complete Protection.
               </p>
-              <a className="btn btn-primary" href="#category">
-                Explore Now
-              </a>
+              <button
+                className="btn btn-primary"
+                onClick={() => navigate("/products")}
+              >
+                Shop Now
+              </button>
             </div>
             <div className="hero-img-container">
               <img className="image-resp" src={cardImage} alt="hero" />

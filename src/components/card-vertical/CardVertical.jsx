@@ -1,5 +1,7 @@
 import "./card-vertical.css";
 import { Button } from "../index";
+import { useCartContext, useWishlistContext } from "../../context";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CardVertical = ({
   cardData,
@@ -9,6 +11,7 @@ const CardVertical = ({
   onClickFunc2,
 }) => {
   const {
+    _id,
     badgeName,
     image,
     cardName,
@@ -18,6 +21,18 @@ const CardVertical = ({
     discountPercentage,
     rating,
   } = cardData;
+
+  // Cart context
+  const {
+    cartState: { cartList },
+  } = useCartContext();
+
+  // Wishlist Context
+  const { wishlist } = useWishlistContext();
+
+  // from react-router-dom
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   return (
     <div className="card card-vertical card-pos-rel">
@@ -45,14 +60,34 @@ const CardVertical = ({
         </div>
       </div>
       <Button
-        name={buttonPrimary}
+        name={
+          cartList.find((cardData) => cardData._id === _id)
+            ? "Go to cart"
+            : buttonPrimary
+        }
         className="btn-primary"
-        onClickFunc={onClickFunc1}
+        onClickFunc={
+          cartList.find((cardData) => cardData._id === _id)
+            ? () => navigate("/cart")
+            : onClickFunc1
+        }
       ></Button>
       <Button
-        name={buttonSecondary}
+        name={
+          wishlist.find((cardData) => cardData._id === _id)
+            ? pathname === "/products"
+              ? "Go to wishlist"
+              : buttonSecondary
+            : buttonSecondary
+        }
         className="btn-secondary"
-        onClickFunc={onClickFunc2}
+        onClickFunc={
+          wishlist.find((cardData) => cardData._id === _id)
+            ? pathname === "/products"
+              ? () => navigate("/wishlist")
+              : onClickFunc2
+            : onClickFunc2
+        }
       ></Button>
     </div>
   );

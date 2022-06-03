@@ -33,6 +33,7 @@ const ProductPage = () => {
       range,
       searchParam,
     },
+    productPageDispatch,
   } = useProductContext();
 
   // Wishlist Context
@@ -64,41 +65,60 @@ const ProductPage = () => {
 
   return (
     <>
+      <div className="search-bar-container">
+        <i className="fas fa-search search-icon"></i>
+        <input
+          className="input search-bar"
+          type="text"
+          value={searchParam}
+          onChange={(e) => {
+            productPageDispatch({
+              type: "SEARCH",
+              payload: e.target.value,
+            });
+          }}
+        />
+      </div>
       <div className="product-page-wrapper">
         <AsideBar />
         <main className="product-page-main">
           <h3>All Products</h3>
-          <h1 className="loading">{loading}</h1>
-          <div className="product-container">
-            {filteredProductList.map((item) => (
-              <CardVertical
-                key={item._id}
-                cardData={item}
-                buttonPrimary="Add to cart"
-                buttonSecondary="Add to wishlist"
-                onClickFunc1={() => {
-                  addToCart(
-                    cartList,
-                    cartDispatch,
-                    item,
-                    toastDispatch,
-                    navigate,
-                    location
-                  );
-                }}
-                onClickFunc2={() => {
-                  addToWishlist(
-                    wishlist,
-                    setWishlist,
-                    item,
-                    toastDispatch,
-                    navigate,
-                    location
-                  );
-                }}
-              />
-            ))}
-          </div>
+          {loading ? (
+            <h1 className="loading">{loading}</h1>
+          ) : filteredProductList.length === 0 ? (
+            <h3 className="text-center">No products found!</h3>
+          ) : (
+            <div className="product-container">
+              {filteredProductList.map((item) => (
+                <CardVertical
+                  key={item._id}
+                  cardData={item}
+                  buttonPrimary="Add to cart"
+                  buttonSecondary="Add to wishlist"
+                  onClickFunc1={() => {
+                    addToCart(
+                      cartList,
+                      cartDispatch,
+                      item,
+                      toastDispatch,
+                      navigate,
+                      location
+                    );
+                  }}
+                  onClickFunc2={() => {
+                    addToWishlist(
+                      wishlist,
+                      setWishlist,
+                      item,
+                      toastDispatch,
+                      navigate,
+                      location
+                    );
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </main>
       </div>
     </>
