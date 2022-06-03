@@ -83,37 +83,42 @@ const ProductPage = () => {
         <AsideBar />
         <main className="product-page-main">
           <h3>All Products</h3>
-          <h1 className="loading">{loading}</h1>
-          <div className="product-container">
-            {filteredProductList.map((item) => (
-              <CardVertical
-                key={item._id}
-                cardData={item}
-                buttonPrimary="Add to cart"
-                buttonSecondary="Add to wishlist"
-                onClickFunc1={() => {
-                  addToCart(
-                    cartList,
-                    cartDispatch,
-                    item,
-                    toastDispatch,
-                    navigate,
-                    location
-                  );
-                }}
-                onClickFunc2={() => {
-                  addToWishlist(
-                    wishlist,
-                    setWishlist,
-                    item,
-                    toastDispatch,
-                    navigate,
-                    location
-                  );
-                }}
-              />
-            ))}
-          </div>
+          {loading ? (
+            <h1 className="loading">{loading}</h1>
+          ) : filteredProductList.length === 0 ? (
+            <h3 className="text-center">No products found!</h3>
+          ) : (
+            <div className="product-container">
+              {filteredProductList.map((item) => (
+                <CardVertical
+                  key={item._id}
+                  cardData={item}
+                  buttonPrimary="Add to cart"
+                  buttonSecondary="Add to wishlist"
+                  onClickFunc1={() => {
+                    addToCart(
+                      cartList,
+                      cartDispatch,
+                      item,
+                      toastDispatch,
+                      navigate,
+                      location
+                    );
+                  }}
+                  onClickFunc2={() => {
+                    addToWishlist(
+                      wishlist,
+                      setWishlist,
+                      item,
+                      toastDispatch,
+                      navigate,
+                      location
+                    );
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </main>
       </div>
     </>
