@@ -12,7 +12,7 @@ The lucent store consist of shirts, pants and yoga mats.
   - Login
   - Signup
   - Logout
-- Filter videos based on category in home page.
+- Filter products based on category on home page.
 - Products page where all products are listed.
 - Filter and sort the products.
 - Cart, wishlist, and order management.
